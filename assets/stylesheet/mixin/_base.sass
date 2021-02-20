@@ -1,0 +1,28 @@
+html
+  font-size: 4px
+
+html,body
+  min-height: 100vh
+
+img
+  object-fit: cover
+
+// ::selection
+//   background: #262626
+//   color: #8ddf67
+
+.pc-only
+  +sp-view
+    display: none !important
+.sp-only
+  +pc-view
+    display: none !important
+
+
+.scrollbar-track
+  background: transparent !important
+  width: 1rem !important
+  .scrollbar-thumb
+    border-radius: 0px
+    background: #ffffff
+    transition: height .5s ease-in
