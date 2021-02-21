@@ -10,14 +10,14 @@
       .base-header__left
         ul.base-header__menu
           li(v-for="item in ['Works','About','Contact']")
-            n-link(:to="`/${item.toLowerCase()}`").base-header__menu__link {{item}}
+            n-link(:to="/").base-header__menu__link {{item}}
     .base-footer
       .base-footer__wrap
         .base-footer__info
           Logo.base-footer__logo
           ul.base-footer__menu
             li(v-for="item in ['Works','About','Contact']")
-              n-link(:to="`/${item.toLowerCase()}`").base-footer__menu__link {{item}}
+              n-link(to="/").base-footer__menu__link {{item}}
           ul.base-footer__social
             li
               a(href="/").base-footer__social__link Twitter

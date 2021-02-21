@@ -1,5 +1,5 @@
 <template lang="pug">
-  .container
+  .container(ref="topContainer")
     .top
       .top__title
         .top__title__wrap
@@ -17,6 +17,14 @@
           h2.works__title-box__text Works
           span.works__title-box__bar
           n-link(to="/").works__title-box__text All Works
+
+        .works__list
+          .works__item(v-for="item of 5")
+            img.works__item__thumbnail(src="https://images.microcms-assets.io/protected/ap-northeast-1:5f222472-49ae-43ef-9009-85b89c98d6be/service/uchida/media/20201203_1.jpeg?auto=compress&h=500&w=500&fit=clip")
+            .works__item__info
+              p Zypressen
+              span.works__item__bar
+              p Mar 6.2020
     .about
       .about__wrap
         .about__box
@@ -43,15 +51,33 @@
 
 <script>
 // import Scrollbar, { ScrollbarPlugin } from 'smooth-scrollbar'
-// import gsap from 'gsap' // eslint-disable-line
-// import { ScrollTrigger } from 'gsap/dist/ScrollTrigger.min.js'
+import gsap from 'gsap' // eslint-disable-line
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger.min.js'
+import { Draggable } from 'gsap/dist/Draggable.min.js'
 
 export default {
   data() {
     return {}
   },
   mounted() {
-    // gsap.registerPlugin(ScrollTrigger)
+    gsap.registerPlugin(ScrollTrigger, Draggable)
+
+    const windowWidth = gsap.getProperty('html', 'width')
+    const listWidth = gsap.getProperty('.works__list', 'width')
+    console.log(windowWidth, listWidth)
+    Draggable.create('.works__list', {
+      type: 'x',
+      edgeResistance: 0.65,
+      resistance: 0.75,
+      bounds: { minX: 0, maxX: windowWidth - listWidth },
+      throwProps: true,
+      // autoScroll: true,
+      inertia: {
+        snap: { x: this.snapX },
+        maxDuration: 0.5,
+        minDuration: 0.1,
+      },
+    })
   },
   created() {},
   methods: {},
@@ -59,8 +85,6 @@ export default {
 </script>
 
 <style lang="sass" scoped>
-.container
-
 .top
   +full-screen
   position: relative
@@ -118,11 +142,31 @@ export default {
 .works
   margin: 140px 0px
   width: 100vw
+  overflow-x: hidden
   &__title-box
     margin-left: 80px
     display: flex
     align-items: center
     +gap-right(32px)
+    &__bar
+      height: 1px
+      width: 20px
+      background: var(--color-white)
+  &__list
+    padding: 0 200px
+    padding-top: 36px
+    display: flex
+    +gap-right(36px)
+    width: fit-content
+  &__item
+    &__thumbnail
+      width: 500px
+      height: 750px
+    &__info
+      display: flex
+      align-items: center
+      +gap-right(16px)
+      margin-top: 16px
     &__bar
       height: 1px
       width: 20px
