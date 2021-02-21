@@ -26,6 +26,11 @@
             li
               a(href="/").base-footer__social__link Info@zypressen.org
         small.base-footer__copy ©2021ZYPRESSEN
+        .base-footer__scroll
+          .base-footer__scroll__circle
+            .base-footer__scroll__text-wrap
+              p.base-footer__scroll__text Back Top
+              p.base-footer__scroll__text.base-footer__scroll__bottom Back Top
     .bg-movie
       img.bg-movie__movie(src="/bg_img.png")
 </template>
@@ -73,6 +78,7 @@ export default {
   &__wrap
     border-top: 2px solid var(--color-white)
     padding-top: 200px
+    position: relative
   &__info
     display: flex
   &__logo
@@ -91,6 +97,48 @@ export default {
     margin-top: 200px
     font-size: 15px
     letter-spacing: 0.6px
+  &__scroll
+    position: absolute
+    bottom: 0px
+    right: 0px
+    height: 160px
+    width: 160px
+    z-index: 2
+    cursor: pointer
+    &__circle
+      height: 160px
+      width: 160px
+      background: var(--color-white)
+      border-radius: 100%
+      +flex-middle
+      transition: all .4s ease
+    &__text-wrap
+      position: relative
+      overflow: hidden
+      transition: all .4s ease
+    &__text
+      font-size: 12px
+      letter-spacing: 0.6px
+      color: #888888
+      animation: scroll-text 1s ease 1s normal infinite
+    &__bottom
+      position: absolute
+      top: 16px
+    &:hover
+      & .base-footer__scroll__circle
+        transform: scale(0.9)
+      & .base-footer__scroll__text-wrap
+        transform: scale(1.2)
+      & .base-footer__scroll__text
+        transform: translateY(-16px)
+        transition: all .3s ease .2s
+        animation: none
+
+    @keyframes scroll-text
+      0%
+        transform: translateY(0px)
+      100%
+        transform: translateY(-16px)
 
 .bg-movie
   +full-screen

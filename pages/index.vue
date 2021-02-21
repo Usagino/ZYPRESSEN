@@ -12,6 +12,11 @@
             p.top__scroll__text Scroll
             p.top__scroll__text.top__scroll__bottom Scroll
     .works
+      .works__wrap
+        .works__title-box
+          h2.works__title-box__text Works
+          span.works__title-box__bar
+          n-link(to="/").works__title-box__text All Works
     .about
       .about__wrap
         .about__box
@@ -109,6 +114,19 @@ export default {
         transform: translateY(0px)
       100%
         transform: translateY(-16px)
+
+.works
+  margin: 140px 0px
+  width: 100vw
+  &__title-box
+    margin-left: 80px
+    display: flex
+    align-items: center
+    +gap-right(32px)
+    &__bar
+      height: 1px
+      width: 20px
+      background: var(--color-white)
 
 .about
   +default-width
