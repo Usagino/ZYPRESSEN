@@ -11,7 +11,21 @@
         ul.base-header__menu
           li(v-for="item in ['Works','About','Contact']")
             n-link(:to="`/${item.toLowerCase()}`").base-header__menu__link {{item}}
-
+    .base-footer
+      .base-footer__wrap
+        .base-footer__info
+          Logo.base-footer__logo
+          ul.base-footer__menu
+            li(v-for="item in ['Works','About','Contact']")
+              n-link(:to="`/${item.toLowerCase()}`").base-footer__menu__link {{item}}
+          ul.base-footer__social
+            li
+              a(href="/").base-footer__social__link Twitter
+            li
+              a(href="/").base-footer__social__link Instagram
+            li
+              a(href="/").base-footer__social__link Info@zypressen.org
+        small.base-footer__copy ©2021ZYPRESSEN
     .bg-movie
       img.bg-movie__movie(src="/bg_img.png")
 </template>
@@ -52,6 +66,31 @@ export default {
     &__link
       font-size: 15px
       letter-spacing: 0.6px
+
+.base-footer
+  +default-width
+  padding-bottom: 80px
+  &__wrap
+    border-top: 2px solid var(--color-white)
+    padding-top: 200px
+  &__info
+    display: flex
+  &__logo
+    margin-right: 80px
+  &__menu, &__social
+    margin-right: 40px
+    +gap-bottom(32px)
+    &__link
+      font-size: 15px
+      letter-spacing: 0.6px
+  &__social
+    &__link
+      text-decoration: underline
+  &__copy
+    display: block
+    margin-top: 200px
+    font-size: 15px
+    letter-spacing: 0.6px
 
 .bg-movie
   +full-screen
