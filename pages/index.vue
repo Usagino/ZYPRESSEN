@@ -22,9 +22,9 @@
           .works__item(v-for="item of 5")
             img.works__item__thumbnail(src="https://images.microcms-assets.io/protected/ap-northeast-1:5f222472-49ae-43ef-9009-85b89c98d6be/service/uchida/media/20201203_1.jpeg?auto=compress&h=500&w=500&fit=clip")
             .works__item__info
-              p Zypressen
+              p.works__item__text Zypressen
               span.works__item__bar
-              p Mar 6.2020
+              p.works__item__text Mar 6.2020
     .about
       .about__wrap
         .about__box
@@ -61,26 +61,32 @@ export default {
   },
   mounted() {
     gsap.registerPlugin(ScrollTrigger, Draggable)
-
-    const windowWidth = gsap.getProperty('html', 'width')
-    const listWidth = gsap.getProperty('.works__list', 'width')
-    console.log(windowWidth, listWidth)
-    Draggable.create('.works__list', {
-      type: 'x',
-      edgeResistance: 0.65,
-      resistance: 0.75,
-      bounds: { minX: 0, maxX: windowWidth - listWidth },
-      throwProps: true,
-      // autoScroll: true,
-      inertia: {
-        snap: { x: this.snapX },
-        maxDuration: 0.5,
-        minDuration: 0.1,
-      },
-    })
+    this.worksDraggable()
   },
   created() {},
-  methods: {},
+  methods: {
+    worksDraggable() {
+      const windowWidth = gsap.getProperty('html', 'width')
+      const listWidth = gsap.getProperty('.works__list', 'width')
+      Draggable.create('.works__list', {
+        type: 'x',
+        edgeResistance: 0.65,
+        // dragResistance: 0.5,
+        resistance: 0.75,
+        bounds: { minX: 0, maxX: windowWidth - listWidth },
+        throwProps: true,
+        // autoScroll: true,
+        snap: {
+          x: 120,
+        },
+        inertia: {
+          snap: { x: this.snapX },
+          maxDuration: 0.5,
+          minDuration: 0.1,
+        },
+      })
+    },
+  },
 }
 </script>
 
@@ -92,18 +98,29 @@ export default {
     position: absolute
     bottom: 80px
     left: 80px
+    +sp-view
+      bottom: 32px
+      left: 20px
     &__wrap
       overflow: hidden
     &__text
       font-size: 144px
       letter-spacing: 4px
       font-weight: 300
+      +sp-view
+        font-size: 40px
+        letter-spacing: 1.4px
   &__scroll
     position: absolute
     bottom: 80px
     right: 80px
     height: 160px
     width: 160px
+    +sp-view
+      right: 20px
+      bottom: 32px
+      height: 64px
+      width: 64px
     &__circle
       height: 160px
       width: 160px
@@ -111,6 +128,9 @@ export default {
       border-radius: 100%
       +flex-middle
       transition: all .4s ease
+      +sp-view
+        height: 64px
+        width: 64px
     &__text-wrap
       position: relative
       overflow: hidden
@@ -120,6 +140,8 @@ export default {
       letter-spacing: 0.6px
       color: #888888
       animation: scroll-text 1s ease 1s normal infinite
+      +sp-view
+        font-size: 10px
     &__bottom
       position: absolute
       top: 16px
@@ -140,14 +162,24 @@ export default {
         transform: translateY(-16px)
 
 .works
-  margin: 140px 0px
+  padding: 140px 0px
   width: 100vw
   overflow-x: hidden
+  +sp-view
+    padding-top: 60px
+    padding-bottom: 60px
   &__title-box
     margin-left: 80px
     display: flex
     align-items: center
     +gap-right(32px)
+    +sp-view
+      +gap-right(16px)
+      margin-left: 20px
+    &__text
+      +sp-view
+        font-size: 12px
+        font-weight: 300
     &__bar
       height: 1px
       width: 20px
@@ -158,63 +190,116 @@ export default {
     display: flex
     +gap-right(36px)
     width: fit-content
+    +sp-view
+      padding: 0 56px
+      padding-top: 21px
   &__item
     &__thumbnail
       width: 500px
       height: 750px
+      +sp-view
+        width: 200px
+        height: 300px
     &__info
       display: flex
       align-items: center
       +gap-right(16px)
       margin-top: 16px
+    &__text
+      +sp-view
+        font-size: 12px
+        font-weight: 300
     &__bar
       height: 1px
       width: 20px
       background: var(--color-white)
 
+
 .about
   +default-width
-  margin: 140px 0px
+  padding-top: 140px
+  padding-bottom: 140px
+  +sp-view
+    padding-top: 60px
+    padding-bottom: 60px
   &__wrap
     margin-right: auto
   &__detail
     font-size: 15px
+    +sp-view
+      font-weight: 300
+      font-size: 12px
   &__title
     padding-top: 24px
     font-size: 144px
     font-weight: 300
     letter-spacing: 4px
+    +sp-view
+      font-size: 40px
+      letter-spacing: 4px
+      padding-top: 16px
   &__description
     padding-top: 160px
     width: 480px
     font-size: 15px
     line-height: 200%
     letter-spacing: 1px
+    +sp-view
+      padding-top: 40px
+      font-size: 12px
+      line-height: 180%
+      font-weight: 300
+      width: 100%
 
 .contact
+
   padding-top: 140px
   padding-bottom: 240px
   +default-width
+  +sp-view
+    padding-top: 60px
+    padding-bottom: 120px
   &__wrap
     width: fit-content
     margin-left: auto
   &__detail
     font-size: 15px
     width: fit-content
+    +sp-view
+      font-weight: 300
+      font-size: 12px
   &__title
     width: fit-content
     font-weight: 300
     font-size: 144px
     line-height: 100%
+    +sp-view
+      font-size: 40px
+      letter-spacing: 4px
+      padding-top: 16px
+
   &__description, &__infomation
     font-size: 15px
     line-height: 200%
     letter-spacing: 1px
     width: 480px
+    +sp-view
+      width: 100%
+      font-weight: 300
+      font-size: 12px
   &__description
     padding-top: 160px
+    +sp-view
+      padding-top: 40px
+      line-height: 180%
+
   &__infomation
     +gap-right(16px)
+    +sp-view
+      +gap-right(8px)
     &__link
       text-decoration: underline
+      +sp-view
+        font-size: 12px
+        font-weight: 300
 </style>

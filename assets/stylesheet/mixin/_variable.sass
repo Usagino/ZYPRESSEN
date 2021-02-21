@@ -1,58 +1,71 @@
-$phone: "(max-width: 750px)"
-$exept-phone: "(min-width: 751px)"
-$tablet-portrait: "(max-width: 768px)"
-$tablet-desktop: "(max-width: 992px)"
-$large-desktop: "(max-width: 1200px)"
-$big-desktop: "(max-width: 1580px)"
-$super-desktop: "(min-width: 1800px)"
+$sp-size: "(max-width: 750px)"
+$pc-size: "(min-width: 751px)"
+$pc-sm-size: "(max-width: 992px)"
+$pc-md-size: "(max-width: 1200px)"
+$pc-lg-size: "(max-width: 1580px)"
 
-$small-desktop-only: "(min-width: 751px) and (max-width: 992px)"
-$medium-desktop-only: "(min-width: 993px) and (max-width: 1200px)"
-$large-desktop-only: "(min-width: 1201px)"
+$pc-sm-over-size: "(min-width: 993px)"
+$pc-md-over-size: "(min-width: 1201px)"
+$pc-lg-over-size: "(min-width: 1581px)"
 
-$medium-desktop-over: "(min-width: 993px)"
-
-$non-retina: "screen and (-webkit-max-device-pixel-ratio: 1)"
-$retina: "screen and (-webkit-min-device-pixel-ratio: 2)"
+$pc-sm-only-size: "(min-width: 751px) and (max-width: 992px)"
+$pc-md-only-size: "(min-width: 993px) and (max-width: 1200px)"
+$pc-lg-only-size: "(min-width: 1201px) and (max-width: 1580px)"
 
 =respond-to($media)
   @media #{$media}
     @content
 
 =sp-view
-  +respond-to($phone)
+  +respond-to($sp-size)
+    @content
+
+=tablet-size
+  +respond-to("(max-width: 770px)")
     @content
 
 =pc-view
-  +respond-to($exept-phone)
+  +respond-to($pc-size)
     @content
 
 =pc-sm-view
-  +respond-to($tablet-desktop)
+  +respond-to($pc-sm-size)
     @content
 
 =pc-md-view
-  +respond-to($large-desktop)
+  +respond-to($pc-md-size)
     @content
 
 =pc-lg-view
-  +respond-to($big-desktop)
+  +respond-to($pc-lg-size)
     @content
 
-=pc-sm-view-only
-  +respond-to($small-desktop-only)
-    @content
-
-=pc-md-view-only
-  +respond-to($medium-desktop-only)
-    @content
-
-=pc-lg-view-only
-  +respond-to($large-desktop-only)
+=pc-sm-view-over
+  +respond-to($pc-sm-over-size)
     @content
 
 =pc-md-view-over
-  +respond-to($medium-desktop-over)
+  +respond-to($pc-md-over-size)
+    @content
+
+=pc-lg-view-over
+  +respond-to($pc-lg-over-size)
+    @content
+
+=pc-sm-view-only
+  +respond-to($pc-sm-only-size)
+    @content
+
+=pc-md-view-only
+  +respond-to($pc-md-only-size)
+    @content
+
+=pc-lg-view-only
+  +respond-to($pc-lg-only-size)
+    @content
+
+=ie-view
+  @media all and (-ms-high-contrast: none)
     @content
 
 =clearfix
