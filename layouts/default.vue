@@ -1,6 +1,7 @@
 <template lang="pug">
   div(:style="style")
     baseHeader
+    baseMenu
     nuxt
     baseFooter
     .bg-movie

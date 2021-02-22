@@ -48,8 +48,12 @@ export default {
   &__left
     +sp-view
       display: none
+  &__logo-wrap
+    line-height: 0px
   &__logo
     margin-right: 88px
+    +sp-view
+      width: 80px
   &__lang
     +gap-right(32px)
     *
