@@ -11,6 +11,9 @@
 import deviceMixin from '@/assets/mixin/device.js'
 export default {
   mixins: [deviceMixin],
+  mounted() {
+    this.$('html, body').classList.add('index')
+  },
 }
 </script>
 
