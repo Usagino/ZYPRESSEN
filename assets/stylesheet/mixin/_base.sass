@@ -2,9 +2,10 @@ html
   font-size: 4px
 
 html,body
-  min-height: 100vh
   width: 100vw
   overflow-x: hidden
+  overscroll-behavior: none
+  min-height: var(--wh, 100vh)
 
 img
   object-fit: cover
@@ -20,6 +21,21 @@ img
   +pc-view
     display: none !important
 
+.container
+  height: var(--wh, 100vh)
+
+.index
+  overscroll-behavior: none
+  position: fixed
+  top: 0
+  left: 0
+  right: 0
+  bottom: 0
+  width: 100%
+  height: 100vh
+  overflow: hidden
+  &>body
+    @extend .index
 
 .scrollbar-track
   background: transparent !important

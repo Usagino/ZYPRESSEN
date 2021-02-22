@@ -47,21 +47,25 @@
             a.contact__infomation__link(href="/") Twitter
             span /
             a.contact__infomation__link(href="/") Instagram
+    baseFooter
 </template>
 
 <script>
-// import Scrollbar, { ScrollbarPlugin } from 'smooth-scrollbar'
+import Scrollbar, { ScrollbarPlugin } from 'smooth-scrollbar'
 import gsap from 'gsap' // eslint-disable-line
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger.min.js'
 import { Draggable } from 'gsap/dist/Draggable.min.js'
 
 export default {
   data() {
-    return {}
+    return {
+      bodyScrollBar: null,
+    }
   },
   mounted() {
     gsap.registerPlugin(ScrollTrigger, Draggable)
     this.worksDraggable()
+    this.scrollCustom()
   },
   created() {},
   methods: {
@@ -71,11 +75,9 @@ export default {
       Draggable.create('.works__list', {
         type: 'x',
         edgeResistance: 0.65,
-        // dragResistance: 0.5,
         resistance: 0.75,
         bounds: { minX: 0, maxX: windowWidth - listWidth },
         throwProps: true,
-        // autoScroll: true,
         snap: {
           x: 120,
         },
@@ -85,6 +87,32 @@ export default {
           minDuration: 0.1,
         },
       })
+    },
+    scrollCustom() {
+      Scrollbar.destroyAll()
+      const el = this.$refs.topContainer
+      this.bodyScrollBar = Scrollbar.init(el, {
+        damping: 0.9,
+        delegateTo: document,
+      })
+      this.bodyScrollBar.addListener(({ offset }) => {
+        if (el.querySelector('.offset-pos')) {
+          gsap.set('.offset-pos', {
+            x: offset.x,
+            y: offset.y,
+          })
+        }
+      })
+      this.bodyScrollBar.setPosition(0, 0)
+      ScrollTrigger.scrollerProxy(el, {
+        scrollTop(value) {
+          if (arguments.length) {
+            this.bodyScrollBar.scrollTop = value
+          }
+          return this.bodyScrollBar.scrollTop
+        },
+      })
+      this.bodyScrollBar.addListener(ScrollTrigger.update)
     },
   },
 }

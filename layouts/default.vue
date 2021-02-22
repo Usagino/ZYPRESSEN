@@ -3,7 +3,6 @@
     baseHeader
     baseMenu
     nuxt
-    baseFooter
     .bg-movie
       img.bg-movie__movie(src="/bg_img.png")
 </template>
