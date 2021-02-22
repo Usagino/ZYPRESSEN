@@ -99,7 +99,8 @@ $pc-lg-only-size: "(min-width: 1201px) and (max-width: 1580px)"
 =full-screen
   height: 100vh
   width: 100vw
-  height: -webkit-fill-available
+  @supports(-webkit-touch-callout: none)
+    height: -webkit-fill-available
 
 =size-fit-content
   height: fit-content
