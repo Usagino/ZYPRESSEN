@@ -311,6 +311,7 @@ export default {
     font-weight: 300
     font-size: 144px
     line-height: 100%
+    padding-top: 24px
     +sp-view
       font-size: 40px
       letter-spacing: 4px
