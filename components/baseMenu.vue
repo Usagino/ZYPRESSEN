@@ -1,7 +1,7 @@
 <template lang="pug">
   .base-menu
     button.button(@click="menuDisplay()")
-      button.button__touch
+      .button__touch
       span.button__bar-top.button__bar
       span.button__bar-bottom.button__bar
     .display

@@ -20,6 +20,7 @@ export default {
     '@/plugins/globalMethods.js',
     // { src: '@/plugins/dat-gui.js', mode: 'client' },
     // { src: '@/plugins/ga.js', mode: 'client' },
+    { src: '@/plugins/draggabilly.js', mode: 'client' },
   ],
   components: true,
   css: ['~/assets/stylesheet/style.sass'],
@@ -35,7 +36,7 @@ export default {
     '@nuxtjs/style-resources',
     '@nuxtjs/pwa',
     '@nuxtjs/dayjs',
-    // 'nuxt-user-agent',
+    'nuxt-user-agent',
     // '@nuxtjs/sitemap',
   ],
 

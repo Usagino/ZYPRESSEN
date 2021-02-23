@@ -72,19 +72,28 @@ export default {
     worksDraggable() {
       const windowWidth = gsap.getProperty('html', 'width')
       const listWidth = gsap.getProperty('.works__list', 'width')
+      const maxXdiff = windowWidth - listWidth
       Draggable.create('.works__list', {
         type: 'x',
         edgeResistance: 0.65,
-        resistance: 0.75,
-        bounds: { minX: 0, maxX: windowWidth - listWidth },
-        throwProps: true,
-        snap: {
-          x: 120,
-        },
-        inertia: {
-          snap: { x: this.snapX },
-          maxDuration: 0.5,
-          minDuration: 0.1,
+        bounds: { minX: 0, maxX: maxXdiff },
+        onDragEnd(item) {
+          const posX = gsap.getProperty('.works__list', 'x')
+          if (this.getDirection() === 'left') {
+            const move = posX + -100
+            gsap.to('.works__list', {
+              duration: 1,
+              x: move < maxXdiff ? posX : move,
+              ease: 'expo.out',
+            })
+          } else {
+            const move = posX + 100
+
+            gsap.to('.works__list', {
+              duration: 1,
+              x: move > 0 ? 0 : move,
+            })
+          }
         },
       })
     },
@@ -92,7 +101,7 @@ export default {
       Scrollbar.destroyAll()
       const el = this.$refs.topContainer
       this.bodyScrollBar = Scrollbar.init(el, {
-        damping: 0.9,
+        damping: this.$ua.isFromSmartphone() ? 0.6 : 0.9,
         delegateTo: document,
       })
       this.bodyScrollBar.addListener(({ offset }) => {
@@ -218,6 +227,7 @@ export default {
     display: flex
     +gap-right(36px)
     width: fit-content
+    cursor: grab
     +sp-view
       padding: 0 56px
       padding-top: 21px
