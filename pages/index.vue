@@ -40,8 +40,8 @@
         .contact__box
           h2.contact__title Please<br>Contact!!
         .contact__box
-          p.contact__description Please feel free to contact me anytime. From your dear neighbor ZYPRESSEN.
-          .contact__infomation
+          p.contact__description.contact__move-text Please feel free to contact me anytime. From your dear neighbor ZYPRESSEN.
+          .contact__infomation.contact__move-text
             a.contact__infomation__link(href="/") info@zypressen.org
             span /
             a.contact__infomation__link(href="/") Twitter
@@ -66,6 +66,7 @@ export default {
     gsap.registerPlugin(ScrollTrigger, Draggable)
     this.worksDraggable()
     this.scrollCustom()
+    this.scrollAnimation()
   },
   created() {},
   methods: {
@@ -121,7 +122,86 @@ export default {
           return this.bodyScrollBar.scrollTop
         },
       })
-      this.bodyScrollBar.addListener(ScrollTrigger.update)
+      this.bodyScrollBar.addListener(() => {
+        this.bodyScrollBar.setPosition(0)
+        ScrollTrigger.refresh()
+      })
+    },
+    scrollAnimation() {
+      // works -----
+      const worksTl = gsap.timeline()
+      ScrollTrigger.create({
+        trigger: '.works',
+        animation: worksTl,
+        start: 'top center',
+      })
+      gsap.utils.toArray('.works__item').forEach((el, i) => {
+        gsap.set(el, { clipPath: 'inset(0 0 0 100%)' })
+        worksTl.to(
+          el,
+          {
+            duration: 1 + i / 10,
+            clipPath: 'inset(0 0 0 0%)',
+            ease: 'expo.out',
+          },
+          'works'
+        )
+      })
+
+      // about ----
+      const aboutTl = gsap.timeline()
+      ScrollTrigger.create({
+        trigger: '.about',
+        animation: aboutTl,
+        start: 'top center',
+      })
+      gsap.set('.about__title', { y: '110%' })
+      gsap.set('.about__description', { opacity: 0, y: 50 })
+      aboutTl.to(
+        '.about__title',
+        { duration: 1, y: '-10%', ease: 'expo.out' },
+        'about'
+      )
+      aboutTl.to('.about__title', { duration: 1, y: '0%' })
+      aboutTl.to(
+        '.about__description',
+        {
+          duration: 1,
+          opacity: 1,
+          y: 0,
+        },
+        'about'
+      )
+
+      // contact ----
+      const contactTl = gsap.timeline()
+      ScrollTrigger.create({
+        trigger: '.contact',
+        animation: contactTl,
+        start: 'top center',
+      })
+      gsap.set('.contact__title', { y: '110%' })
+      gsap.set('.contact__move-text', { opacity: 0, y: 50 })
+
+      contactTl.to(
+        '.contact__title',
+        {
+          duration: 1,
+          y: '-10%',
+          ease: 'expo.out',
+        },
+        'contact'
+      )
+      contactTl.to('.contact__title', { duration: 1, y: '0%' })
+      contactTl.to(
+        '.contact__move-text',
+        {
+          duration: 1,
+          opacity: 1,
+          y: 0,
+        },
+        'contact'
+      )
     },
   },
 }
@@ -262,6 +342,8 @@ export default {
     padding-bottom: 60px
   &__wrap
     margin-right: auto
+  &__box
+    overflow: hidden
   &__detail
     font-size: 15px
     +sp-view
@@ -300,6 +382,8 @@ export default {
   &__wrap
     width: fit-content
     margin-left: auto
+  &__box
+    overflow: hidden
   &__detail
     font-size: 15px
     width: fit-content
