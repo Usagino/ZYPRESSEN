@@ -71,7 +71,7 @@ export default {
           {
             duration: 1,
             y: 1.5,
-            rotate: '10deg',
+            rotate: '16deg',
           },
           'open'
         )
@@ -80,7 +80,7 @@ export default {
           {
             duration: 1,
             y: -1.5,
-            rotate: '-10deg',
+            rotate: '-16deg',
           },
           'open'
         )
@@ -166,41 +166,41 @@ export default {
   opacity: 0
   *
     color: #888888
-  &__logo
+  .display__logo
     position: absolute
     top: 32px
     left: 20px
     width: 80px
-  &__menu
+  .display__menu
     +default-width
     display: flex
     align-items: center
     height: 100%
     position: relative
-    &__item
+    .display__menu__item
       font-size: 56px
       line-height: 96%
       font-weight: 300
-  &__social
-    &__list
+  .display__social
+    .display__social__list
       position: absolute
       bottom: 132px
       width: fit-content
       +gap-bottom(8px)
-    &__item
+    .display__social__item
       font-size: 12px
       font-weight: 300
-  &__lang
-    &__wrap
+  .display__lang
+    .display__lang__wrap
       position: absolute
-      bottom: 20px
+      bottom: 32px
       right: 20px
       +gap-right(16px)
-      &__text
+      .display__lang__wrap__text
         font-size: 12px
         font-weight: 300
-    &--en
+    .display__lang--en
       text-decoration: underline
-    &--ja
+    .display__lang--ja
       opacity: 0.6
 </style>
