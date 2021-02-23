@@ -42,19 +42,19 @@ export default {
   align-items: center
   +sp-view
     top: 32px
-  &__right
+  .base-header__right
     display: flex
     align-items: center
-  &__left
+  .base-header__left
     +sp-view
       display: none
-  &__logo-wrap
+  .base-header__logo-wrap
     line-height: 0px
-  &__logo
+  .base-header__logo
     margin-right: 88px
     +sp-view
       width: 80px
-  &__lang
+  .base-header__lang
     +gap-right(32px)
     *
       font-size: 15px
@@ -62,11 +62,11 @@ export default {
       display: none
     &--ja
       opacity: .5
-  &__menu
+  .base-header__menu
     display: flex
     align-items: center
     +gap-right(32px)
-    &__link
+    .base-header__menu__link
       font-size: 15px
       letter-spacing: 0.6px
 </style>

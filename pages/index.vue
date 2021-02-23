@@ -101,7 +101,7 @@ export default {
       Scrollbar.destroyAll()
       const el = this.$refs.topContainer
       this.bodyScrollBar = Scrollbar.init(el, {
-        damping: this.$ua.isFromSmartphone() ? 0.6 : 0.9,
+        damping: this.$ua.isFromSmartphone() ? 0.6 : 0.1,
         delegateTo: document,
       })
       this.bodyScrollBar.addListener(({ offset }) => {
