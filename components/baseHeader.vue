@@ -50,10 +50,13 @@ export default {
       display: none
   .base-header__logo-wrap
     line-height: 0px
+    +sp-view
+      overflow: auto
   .base-header__logo
     margin-right: 88px
     +sp-view
-      width: 80px
+      margin-right: 0px
+      width: 82px
   .base-header__lang
     +gap-right(32px)
     *

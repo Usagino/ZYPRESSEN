@@ -45,7 +45,11 @@ export default {
   created() {},
   methods: {
     open() {
-      const tl = gsap.timeline()
+      const tl = gsap.timeline({
+        onComplete: () => {
+          this.menuToggle = false
+        },
+      })
       tl.set('.display', {
         display: 'block',
       })
@@ -83,10 +87,13 @@ export default {
         },
         'open'
       )
-      this.menuToggle = false
     },
     close() {
-      const tl = gsap.timeline()
+      const tl = gsap.timeline({
+        onComplete: () => {
+          this.menuToggle = true
+        },
+      })
       tl.to(
         '.display',
         {
@@ -115,7 +122,6 @@ export default {
       tl.set('.display', {
         display: 'none',
       })
-      this.menuToggle = true
     },
     menuDisplay() {
       if (this.menuToggle) {
@@ -177,7 +183,7 @@ export default {
     position: absolute
     top: 32px
     left: 20px
-    width: 80px
+    width: 82px
   .display__menu
     +default-width
     display: flex

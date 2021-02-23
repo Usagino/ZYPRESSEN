@@ -19,7 +19,7 @@
           n-link(to="/works").works__title-box__text All Works
 
         .works__list
-          .works__item(v-for="item of 5")
+          n-link.works__item(v-for="(item,i) of 5" :key="i" :to="`/works/${i}`")
             img.works__item__thumbnail(src="https://images.microcms-assets.io/protected/ap-northeast-1:5f222472-49ae-43ef-9009-85b89c98d6be/service/uchida/media/20201203_1.jpeg?auto=compress&h=500&w=500&fit=clip")
             .works__item__info
               p.works__item__text Zypressen
