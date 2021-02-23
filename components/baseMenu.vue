@@ -9,13 +9,13 @@
       .display__menu.display__social.display__lang
         ul.display__menu__list
           li.display__menu__item-wrap
-            n-link.display__menu__item(to="/") Top
+            n-link.display__menu__item(to="/" @click.native="close()") Top
           li.display__menu__item-wrap
-            n-link.display__menu__item(to="/") Works
+            n-link.display__menu__item(to="/" @click.native="close()") Works
           li.display__menu__item-wrap
-            n-link.display__menu__item(to="/") About
+            n-link.display__menu__item(to="/" @click.native="close()") About
           li.display__menu__item-wrap
-            n-link.display__menu__item(to="/") Contact
+            n-link.display__menu__item(to="/" @click.native="close()") Contact
         ul.display__social__list
           li.display__social__item-wrap
             a(href="/" target="_blank").display__social__item Twitter
@@ -44,78 +44,85 @@ export default {
   },
   created() {},
   methods: {
+    open() {
+      const tl = gsap.timeline()
+      tl.set('.display', {
+        display: 'block',
+      })
+      tl.to(
+        '.display',
+        {
+          duration: 0.6,
+          opacity: 1,
+        },
+        'open'
+      )
+      tl.to(
+        '.button__bar',
+        {
+          duration: 0.6,
+          background: '#888888',
+        },
+        'open'
+      )
+      tl.to(
+        '.button__bar-top',
+        {
+          duration: 1,
+          y: 1.5,
+          rotate: '16deg',
+        },
+        'open'
+      )
+      tl.to(
+        '.button__bar-bottom',
+        {
+          duration: 1,
+          y: -1.5,
+          rotate: '-16deg',
+        },
+        'open'
+      )
+      this.menuToggle = false
+    },
+    close() {
+      const tl = gsap.timeline()
+      tl.to(
+        '.display',
+        {
+          duration: 0.6,
+          opacity: 0,
+        },
+        'close'
+      )
+      tl.to(
+        '.button__bar',
+        {
+          duration: 0.6,
+          background: '#ffffff',
+        },
+        'close'
+      )
+      tl.to(
+        '.button__bar-top, .button__bar-bottom',
+        {
+          duration: 1,
+          y: 0,
+          rotate: '0deg',
+        },
+        'close'
+      )
+      tl.set('.display', {
+        display: 'none',
+      })
+      this.menuToggle = true
+    },
     menuDisplay() {
       if (this.menuToggle) {
-        const tl = gsap.timeline()
-        tl.set('.display', {
-          display: 'block',
-        })
-        tl.to(
-          '.display',
-          {
-            duration: 0.6,
-            opacity: 1,
-          },
-          'open'
-        )
-        tl.to(
-          '.button__bar',
-          {
-            duration: 0.6,
-            background: '#888888',
-          },
-          'open'
-        )
-        tl.to(
-          '.button__bar-top',
-          {
-            duration: 1,
-            y: 1.5,
-            rotate: '16deg',
-          },
-          'open'
-        )
-        tl.to(
-          '.button__bar-bottom',
-          {
-            duration: 1,
-            y: -1.5,
-            rotate: '-16deg',
-          },
-          'open'
-        )
+        this.open()
       } else {
-        const tl = gsap.timeline()
-        tl.to(
-          '.display',
-          {
-            duration: 0.6,
-            opacity: 0,
-          },
-          'close'
-        )
-        tl.to(
-          '.button__bar',
-          {
-            duration: 0.6,
-            background: '#ffffff',
-          },
-          'close'
-        )
-        tl.to(
-          '.button__bar-top, .button__bar-bottom',
-          {
-            duration: 1,
-            y: 0,
-            rotate: '0deg',
-          },
-          'close'
-        )
-        tl.set('.display', {
-          display: 'none',
-        })
+        this.close()
       }
-      this.menuToggle = !this.menuToggle
     },
   },
 }
