@@ -9,7 +9,7 @@
       .display__menu.display__social.display__lang
         ul.display__menu__list
           li.display__menu__item-wrap
-            n-link.display__menu__item(to="/") TOP
+            n-link.display__menu__item(to="/") Top
           li.display__menu__item-wrap
             n-link.display__menu__item(to="/") Works
           li.display__menu__item-wrap
