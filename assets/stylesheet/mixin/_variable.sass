@@ -133,8 +133,8 @@ $pc-lg-only-size: "(min-width: 1201px) and (max-width: 1580px)"
   flex-direction: column
   +gap-bottom(20px)
 
-=default-width($margin:80px)
-  max-width: 2000px
+=default-width($margin:80px,$maxWidth:2000px)
+  max-width: $maxWidth
   width: 100%
   left: 0
   right: 0

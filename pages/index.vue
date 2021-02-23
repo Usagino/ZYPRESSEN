@@ -16,7 +16,7 @@
         .works__title-box
           h2.works__title-box__text Works
           span.works__title-box__bar
-          n-link(to="/").works__title-box__text All Works
+          n-link(to="/works").works__title-box__text All Works
 
         .works__list
           .works__item(v-for="item of 5")
