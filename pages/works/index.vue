@@ -100,43 +100,44 @@ export default {
   margin: auto
   +sp-view
     padding: 106px 0 160px
-  .all-works__title
-    font-size: 40px
-    font-weight: 300
-    letter-spacing: 1.4px
-    padding-bottom: 96px
-    +sp-view
-      width: 100%
-      text-align: center
-      padding-bottom: 56px
-  .posts
-    display: grid
-    grid-template-columns: 25vw 25vw 25vw
-    grid-gap: 80px 36px
-    flex-wrap: wrap
-    +sp-view
-      grid-template-columns: 200px
-      grid-gap: 40px
-    .posts__thumbnail
-      width: 25vw
-      height: 37.5vw
-      +sp-view
-        width: 200px
-        height: 300px
-    .posts__title-box
-      display: flex
-      align-items: center
-      +gap-right(16px)
-      padding-top: 16px
-      .posts__title-box__bar
-        height: 1px
-        width: 32px
-        background: var(--color-white)
-        +sp-view
-          width: 20px
-      .posts__title-box__text
-        font-size: 15px
-        font-weight: 300
-        +sp-view
-          font-size: 12px
+.all-works__title
+  font-size: 40px
+  font-weight: 300
+  letter-spacing: 1.4px
+  padding-bottom: 96px
+  +sp-view
+    width: 100%
+    text-align: center
+    padding-bottom: 56px
+
+.posts
+  display: grid
+  grid-template-columns: 25vw 25vw 25vw
+  grid-gap: 80px 36px
+  flex-wrap: wrap
+  +sp-view
+    grid-template-columns: 200px
+    grid-gap: 40px
+.posts__thumbnail
+  width: 25vw
+  height: 37.5vw
+  +sp-view
+    width: 200px
+    height: 300px
+.posts__title-box
+  display: flex
+  align-items: center
+  +gap-right(16px)
+  padding-top: 16px
+.posts__title-box__bar
+  height: 1px
+  width: 32px
+  background: var(--color-white)
+  +sp-view
+    width: 20px
+.posts__title-box__text
+  font-size: 15px
+  font-weight: 300
+  +sp-view
+    font-size: 12px
 </style>

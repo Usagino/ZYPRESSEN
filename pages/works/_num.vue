@@ -147,10 +147,10 @@ export default {
   top: 0
   left: 0
   z-index: 2
-  .next-thumbnail__image
-    width: 200px
-    height: 300px
-    clip-path: inset(0 100% 0 0%)
+.next-thumbnail__image
+  width: 200px
+  height: 300px
+  clip-path: inset(0 100% 0 0%)
 
 .work
   +default-width(80px,1200px)
@@ -159,72 +159,72 @@ export default {
   z-index: 2
   +sp-view
     +default-width(20px)
-    padding: 100px 0 140px
-  .work__info
-    width: 500px
-    +sp-view
-      width: 50vw
-  .work__title
-    *
-      display: block
-      font-size: 144px
-      font-weight: 300
-      line-height: 100%
-      letter-spacing: 1.4px
-    .work__title__wrap
-      overflow: hidden
-    +sp-view
-      *
-        font-size: 40px
-  .work__text
-    font-weight: 300
-    padding-top: 24px
+    padding: 100px 0 80px
+.work__info
+  width: 500px
+  +sp-view
+    width: 50vw
+.work__title
+  *
     display: block
+    font-size: 144px
+    font-weight: 300
+    line-height: 100%
+    letter-spacing: 1.4px
+.work__title__wrap
+  overflow: hidden
++sp-view
+  *
+    font-size: 40px
+.work__text
+  font-weight: 300
+  padding-top: 24px
+  display: block
+  +sp-view
+    padding-top: 16px
+    font-size: 12px
+  &--first
+    padding-top: 72px
     +sp-view
-      padding-top: 16px
-      font-size: 12px
-    &--first
-      padding-top: 72px
-      +sp-view
-        padding-top: 32px
-    &--link
-      text-decoration: underline
-  .work__thumbnail-wrap
-    width: 100%
-    +flex-middle
+      padding-top: 32px
+  &--link
+    text-decoration: underline
+.work__thumbnail-wrap
+  width: 100%
+  +flex-middle
+  margin-top: 48px
+  +sp-view
     margin-top: 48px
-    +sp-view
-      margin-top: 48px
-  .work__thumbnail
-    width: 500px
-    height: 750px
-    +sp-view
-      width: 200px
-      height: 300px
-  .work__description
-    width: 500px
-    margin: 160px 0
-    +sp-view
-      width: 100%
-      margin: 56px 0
-    .work__description__text
-      font-size: 15px
-      line-height: 200%
-      +sp-view
-        font-size: 12px
-        line-height: 180%
-        font-weight: 300
-  .work__gallery
+.work__thumbnail
+  width: 500px
+  height: 750px
+  +sp-view
+    width: 200px
+    height: 300px
+.work__description
+  width: 500px
+  margin: 160px 0
+  +sp-view
     width: 100%
-    +gap-bottom(80px)
-    +sp-view
-      +gap-bottom(56px)
-    .work__gallery__image
-      width: 1200px
-      height: auto
-      +sp-view
-        width: 100%
-        height: auto
+    margin: 56px 0
+.work__description__text
+  font-size: 15px
+  line-height: 200%
+  +sp-view
+    font-size: 12px
+    line-height: 180%
+    font-weight: 300
+.work__gallery
+  width: 100%
+  +gap-bottom(80px)
+  +sp-view
+    +gap-bottom(56px)
+.work__gallery__image
+  width: 1200px
+  height: auto
+  +sp-view
+    width: 100%
+    height: auto
 
 .next-work
   position: relative
@@ -238,23 +238,23 @@ export default {
   +sp-view
     margin-bottom: 160px
     height: 44px
-  .next-work__wrap
-    display: flex
-    width: fit-content
-    animation: marquee 10s linear 0s normal infinite
-    .next-work__text
-      font-size: 144px
-      font-weight: 300
-      padding-right: 160px
-      line-height: 100%
-      letter-spacing: 4px
-      +sp-view
-        font-size: 40px
-        padding-right: 56px
+.next-work__wrap
+  display: flex
+  width: fit-content
+  animation: marquee 10s linear 0s normal infinite
+.next-work__text
+  font-size: 144px
+  font-weight: 300
+  padding-right: 160px
+  line-height: 100%
+  letter-spacing: 4px
+  +sp-view
+    font-size: 40px
+    padding-right: 56px
 
-  @keyframes marquee
-    0%
-      transform: translateX(0%)
-    100%
-      transform: translateX(-50%)
+@keyframes marquee
+  0%
+    transform: translateX(0%)
+  100%
+    transform: translateX(-50%)
 </style>
