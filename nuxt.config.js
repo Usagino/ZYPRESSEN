@@ -1,5 +1,5 @@
 import metaData from './assets/js/metaData.js' // eslint-disable-line
-const meta = metaData('https://example.com/').data
+const meta = metaData('https://zypressen.vercel.app/').data
 require('dotenv').config()
 export default {
   target: 'static',
