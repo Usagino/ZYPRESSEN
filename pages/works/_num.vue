@@ -7,9 +7,9 @@
       .work__info
         h2.work__title
           .work__title__wrap
-            span Works
+            span.work__title__move-text Works
           .work__title__wrap
-            span Title
+            span.work__title__move-text Title
         p.work__text.work__text--first Created : Mar.6.2020
         p.work__text Client : Zypressen
         a.work__text.work__text--link(href="http://yudouhu.org/" target="_blank") View Project
@@ -47,9 +47,29 @@ export default {
   mounted() {
     gsap.registerPlugin(ScrollTrigger)
     this.scrollCustom()
+    this.enterAnime()
   },
   created() {},
   methods: {
+    enterAnime() {
+      gsap.set('.work__thumbnail', { y: '100%' })
+      gsap.set('.work__title__move-text', { y: '100%' })
+      const tl = gsap.timeline()
+      tl.to('.work__thumbnail', {
+        duration: 1,
+        y: '0%',
+      })
+      tl.to('.work__title__move-text', {
+        duration: 0.5,
+        y: '-10%',
+        ease: 'power2.inOut',
+      })
+      tl.to('.work__title__move-text', {
+        duration: 0.7,
+        y: '0%',
+        ease: 'power2.inOut',
+      })
+    },
     mouseoverNext() {
       console.log('mouseoverNext')
       gsap.to('.next-thumbnail__image', {

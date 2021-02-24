@@ -5,7 +5,7 @@
       h1.all-works__title All Works
       .posts
         n-link.posts__item(
-          v-for="(item,i) of 5"
+          v-for="(item,i) of 10"
           :to="`/works/${i}`"
           :key="i"
           )
@@ -30,9 +30,33 @@ export default {
   mounted() {
     gsap.registerPlugin(ScrollTrigger)
     this.scrollCustom()
+    this.enterAnime()
   },
   created() {},
   methods: {
+    enterAnime() {
+      gsap.set('.posts__item', {
+        clipPath: 'inset(0 0% 0 100%)',
+      })
+      gsap.utils.toArray('.posts__item').forEach((el, i) => {
+        const index = i + 1
+        const duration = { time: 0.5 }
+        if (index % 3 === 0 && this.$ua.isFromSmartphone) {
+          duration.time = 0.7
+        } else if (index % 2 === 0 && this.$ua.isFromSmartphone) {
+          duration.time = 0.5
+        }
+        console.log(duration.time)
+        gsap.to(el, {
+          duration: duration.time,
+          clipPath: 'inset(0 0% 0 0%)',
+          scrollTrigger: {
+            trigger: el,
+            start: 'top center',
+          },
+        })
+      })
+    },
     scrollCustom() {
       Scrollbar.destroyAll()
       const el = this.$refs.worksContainer
