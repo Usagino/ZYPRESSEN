@@ -1,7 +1,7 @@
 export default function metaData(host) {
   const data = {
     description: '',
-    image: host + 'og-image.png',
+    image: host + 'OGP.png',
     title: 'ZYPRESSEN',
     url: host,
   }
