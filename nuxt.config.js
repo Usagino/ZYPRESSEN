@@ -53,7 +53,7 @@ export default {
       ogTitle: meta.title,
       ogDescription: meta.description,
       ogImage: meta.image,
-      twitterCard: 'summary_large_image',
+      twitterCard: 'summary',
     },
     manifest: {
       name: meta.title,
