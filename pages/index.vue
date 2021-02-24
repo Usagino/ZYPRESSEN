@@ -313,8 +313,8 @@ export default {
       padding-top: 21px
   &__item
     &__thumbnail
-      width: 500px
-      height: 750px
+      width: 25vw
+      height: 37.5vw
       +sp-view
         width: 200px
         height: 300px

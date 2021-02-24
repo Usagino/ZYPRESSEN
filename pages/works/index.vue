@@ -111,15 +111,15 @@ export default {
       padding-bottom: 56px
   .posts
     display: grid
-    grid-template-columns: 300px 300px 300px
+    grid-template-columns: 25vw 25vw 25vw
     grid-gap: 80px 36px
     flex-wrap: wrap
     +sp-view
       grid-template-columns: 200px
       grid-gap: 40px
     .posts__thumbnail
-      width: 300px
-      height: 450px
+      width: 25vw
+      height: 37.5vw
       +sp-view
         width: 200px
         height: 300px
