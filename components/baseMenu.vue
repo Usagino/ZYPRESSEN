@@ -11,11 +11,11 @@
           li.display__menu__item-wrap
             n-link.display__menu__item(to="/" @click.native="close()") Top
           li.display__menu__item-wrap
-            n-link.display__menu__item(to="/" @click.native="close()") Works
+            n-link.display__menu__item(to="/works" @click.native="close()") Works
           li.display__menu__item-wrap
-            n-link.display__menu__item(to="/" @click.native="close()") About
+            n-link.display__menu__item(to="/about" @click.native="close()") About
           li.display__menu__item-wrap
-            n-link.display__menu__item(to="/" @click.native="close()") Contact
+            n-link.display__menu__item(to="/contact" @click.native="close()") Contact
         ul.display__social__list
           li.display__social__item-wrap
             a(href="/" target="_blank").display__social__item Twitter

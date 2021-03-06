@@ -4,16 +4,19 @@
     baseMenu
     nuxt
     .bg-movie
-      img.bg-movie__movie(src="/bg_img.png")
+      img.bg-movie__movie(src="/dummy/bg_img.png")
 </template>
 
 <script>
 import deviceMixin from '@/assets/mixin/device.js'
 export default {
   mixins: [deviceMixin],
-  mounted() {
-    this.$('html, body').classList.add('index')
+  created() {
+    if (process.browser) {
+      this.$('html, body').classList.add('index')
+    }
   },
+  mounted() {},
 }
 </script>
 

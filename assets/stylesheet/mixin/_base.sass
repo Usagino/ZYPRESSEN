@@ -52,3 +52,68 @@ img
     border-radius: 0px
     background: #ffffff
     transition: height .5s ease-in
+
+.marquee-link
+  width: 100vw
+  height: 144px
+  overflow-x: hidden
+  display: block
+  position: relative
+  margin-top: 240px
+  margin-bottom: 240px
+  +sp-view
+    height: 40px
+    margin-top: 80px
+    margin-bottom: 180px
+  .marquee-link__wrap
+    display: flex
+    align-items: center
+    position: absolute
+    top: 0
+    bottom: 0
+    left: 0
+    margin: auto
+    animation: marquee-link 20s linear 0s infinite
+    will-change: transform
+  .marquee-link__wrap__text
+    font-weight: 300
+    font-size: 144px
+    line-height: 100%
+    margin-right: 240px
+    +sp-view
+      font-size: 40px
+      letter-spacing: 4px
+      margin-right: 56px
+
+  @keyframes marquee-link
+    to
+      transform: translateX(0%)
+    from
+      transform: translateX(-50%)
+
+.first
+  +default-width
+  height: var(--wh, 100vh)
+  display: flex
+  align-items: center
+  position: relative
+  +sp-view
+    justify-content: center
+  .first__title-box
+    display: flex
+    align-items: flex-start
+  .first__title-box__text
+    font-size: 20px
+    padding-right: 20px
+    +sp-view
+      padding-right: 8px
+      font-size: 10px
+      letter-spacing: 0.4px
+
+  .first__title-box__title
+    font-size: 144px
+    font-weight: 300
+    line-height: 77%
+    +sp-view
+      font-size: 40px
+      letter-spacing: 2px

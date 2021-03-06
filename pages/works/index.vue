@@ -5,14 +5,14 @@
       h1.all-works__title All Works
       .posts
         n-link.posts__item(
-          v-for="(item,i) of 10"
+          v-for="(item,i) of $store.state.works"
           :to="`/works/${i}`"
           :key="i"
           )
           .posts__thumbnail-box
-            img(src="https://images.microcms-assets.io/protected/ap-northeast-1:5f222472-49ae-43ef-9009-85b89c98d6be/service/uchida/media/20201203_1.jpeg?auto=compress&h=500&w=500&fit=clip").posts__thumbnail
+            img(:src="item.thumbnail").posts__thumbnail
           .posts__title-box
-            p.posts__title-box__text Zypressen
+            p.posts__title-box__text {{item.title}}
             span.posts__title-box__bar
             time.posts__title-box__text Mar 6.2020
     baseFooter

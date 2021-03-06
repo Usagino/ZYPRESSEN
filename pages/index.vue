@@ -6,11 +6,7 @@
           h2.top__title__text Diffrent From
         .top__title__wrap
           h2.top__title__text Others!!
-      .top__scroll
-        .top__scroll__circle
-          .top__scroll__text-wrap
-            p.top__scroll__text Scroll
-            p.top__scroll__text.top__scroll__bottom Scroll
+      ScrollButton
     .works
       .works__wrap
         .works__title-box
@@ -19,10 +15,10 @@
           n-link(to="/works").works__title-box__text All Works
 
         .works__list
-          n-link.works__item(v-for="(item,i) of 5" :key="i" :to="`/works/${i}`")
-            img.works__item__thumbnail(src="https://images.microcms-assets.io/protected/ap-northeast-1:5f222472-49ae-43ef-9009-85b89c98d6be/service/uchida/media/20201203_1.jpeg?auto=compress&h=500&w=500&fit=clip")
+          n-link.works__item(v-for="(item,i) in $store.state.works" :key="i" :to="`/works/${i}`")
+            img.works__item__thumbnail(:src="item.thumbnail")
             .works__item__info
-              p.works__item__text Zypressen
+              p.works__item__text {{item.title}}
               span.works__item__bar
               p.works__item__text Mar 6.2020
     .about
@@ -211,72 +207,22 @@ export default {
 .top
   +full-screen
   position: relative
-  &__title
+  .top__title
     position: absolute
     bottom: 80px
     left: 80px
     +sp-view
       bottom: 32px
       left: 20px
-    &__wrap
-      overflow: hidden
-    &__text
-      font-size: 144px
-      letter-spacing: 4px
-      font-weight: 300
-      +sp-view
-        font-size: 40px
-        letter-spacing: 1.4px
-  &__scroll
-    position: absolute
-    bottom: 80px
-    right: 80px
-    height: 160px
-    width: 160px
+  .top__wrap
+    overflow: hidden
+  .top__title__text
+    font-size: 144px
+    letter-spacing: 4px
+    font-weight: 300
     +sp-view
-      right: 20px
-      bottom: 32px
-      height: 64px
-      width: 64px
-    &__circle
-      height: 160px
-      width: 160px
-      background: var(--color-white)
-      border-radius: 100%
-      +flex-middle
-      transition: all .4s ease
-      +sp-view
-        height: 64px
-        width: 64px
-    &__text-wrap
-      position: relative
-      overflow: hidden
-      transition: all .4s ease
-    &__text
-      font-size: 12px
-      letter-spacing: 0.6px
-      color: #888888
-      animation: scroll-text 1s ease 1s normal infinite
-      +sp-view
-        font-size: 10px
-    &__bottom
-      position: absolute
-      top: 16px
-    &:hover
-      & .top__scroll__circle
-        transform: scale(0.9)
-      & .top__scroll__text-wrap
-        transform: scale(1.2)
-      & .top__scroll__text
-        transform: translateY(-16px)
-        transition: all .3s ease .2s
-        animation: none
-
-    @keyframes scroll-text
-      0%
-        transform: translateY(0px)
-      100%
-        transform: translateY(-16px)
+      font-size: 40px
+      letter-spacing: 1.4px
 
 .works
   padding: 140px 0px
