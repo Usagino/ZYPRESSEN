@@ -18,9 +18,12 @@
           a.contact-detail__first__link(href="/" target="_blank") Twitter
           span.contact-detail__first__slash /
           a.contact-detail__first__link(href="/" target="_blank") Instagram
-  n-link(to="/about").marquee-link
-    .marquee-link__wrap
-      span(v-for="item of 8").marquee-link__wrap__text About
+  .gallery
+    .gallery__wrap
+      img.gallery__item(src="/dummy.jpg")
+      img.gallery__item(src="/dummy.jpg")
+      img.gallery__item(src="/dummy.jpg")
+      img.gallery__item(src="/dummy.jpg")
   baseFooter
 </template>
 
@@ -76,9 +79,9 @@ export default {
 <style lang="sass" scoped>
 
 .contact-detail
-  +default-width(80px,1200px)
+  +default-width(40px,1200px)
   +gap-bottom(280px)
-  padding-top: 240px
+  padding: 240px 0
   // .contact-detail__first
   .contact-detail__first__degree
     margin-bottom: 24px
@@ -128,4 +131,28 @@ export default {
     +sp-view
       font-size: 12px
       letter-spacing: 0.6px
+
+.gallery
+  width: 100vw
+  height: 80vh
+  overflow-x: hidden
+  margin-bottom: 240px
+  .gallery__wrap
+    width: fit-content
+    height: 100%
+    display: flex
+    align-items: center
+    will-change: transform
+    animation: marquee 10s linear 0s infinite
+    @keyframes marquee
+      from
+        transform: translateX(0%)
+      to
+        transform: translateX(calc((800px + 80px) * -2))
+  .gallery__item
+    width: 800px
+    height: auto
+    margin-left: 80px
+    &:nth-child(odd)
+      align-self: flex-end
 </style>

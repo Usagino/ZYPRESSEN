@@ -1,21 +1,21 @@
-import Vue from "vue";
+import Vue from 'vue'
 
 Vue.mixin({
   data() {
-    return {};
+    return {}
   },
   methods: {
     $(selector, el) {
       if (!el) {
-        el = document;
+        el = document
       }
-      return el.querySelector(selector);
+      return el.querySelector(selector)
     },
     $$(selector, el) {
       if (!el) {
-        el = document;
+        el = document
       }
-      return el.querySelectorAll(selector);
-    }
-  }
-});
+      return el.querySelectorAll(selector)
+    },
+  },
+})

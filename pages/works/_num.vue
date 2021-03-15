@@ -7,16 +7,20 @@
       .work__info
         h2.work__title
           .work__title__wrap
-            span.work__title__move-text Works
-          .work__title__wrap
-            span.work__title__move-text Title
+            span.work__title__move-text Works Title
         p.work__text.work__text--first Created : Mar.6.2020
-        p.work__text Client : Zypressen
         a.work__text.work__text--link(href="http://yudouhu.org/" target="_blank") View Project
       .work__thumbnail-wrap
         img.work__thumbnail(src="https://images.microcms-assets.io/protected/ap-northeast-1:5f222472-49ae-43ef-9009-85b89c98d6be/service/uchida/media/20201203_1.jpeg?auto=compress&h=500&w=500&fit=clip")
       .work__description
         p.work__description__text Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.
+        .work__detail
+          .work__detail__box
+            p.work__detail__title Media
+            p.work__detail__text Web
+          .work__detail__box
+            p.work__detail__title Client
+            p.work__detail__text Zypressen
       .work__gallery
         img(src="https://images.unsplash.com/photo-1588392382834-a891154bca4d?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2855&q=80").work__gallery__image
         img(src="https://images.unsplash.com/photo-1588392382834-a891154bca4d?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2855&q=80").work__gallery__image
@@ -160,71 +164,80 @@ export default {
   +sp-view
     +default-width(20px)
     padding: 100px 0 80px
-.work__info
-  width: 500px
-  +sp-view
-    width: 50vw
-.work__title
-  *
-    display: block
-    font-size: 144px
-    font-weight: 300
-    line-height: 100%
-    letter-spacing: 1.4px
-.work__title__wrap
-  overflow: hidden
-+sp-view
-  *
-    font-size: 40px
-.work__text
-  font-weight: 300
-  padding-top: 24px
-  display: block
-  +sp-view
-    padding-top: 16px
-    font-size: 12px
-  &--first
-    padding-top: 72px
+  .work__info
+    width: 100%
     +sp-view
-      padding-top: 32px
-  &--link
-    text-decoration: underline
-.work__thumbnail-wrap
-  width: 100%
-  +flex-middle
-  margin-top: 48px
+      width: 50vw
+  .work__title
+    *
+      display: block
+      font-size: 144px
+      font-weight: 300
+      line-height: 100%
+      letter-spacing: 1.4px
+  .work__title__wrap
+    overflow: hidden
   +sp-view
-    margin-top: 48px
-.work__thumbnail
-  width: 500px
-  height: 750px
-  +sp-view
-    width: 200px
-    height: 300px
-.work__description
-  width: 500px
-  margin: 160px 0
-  +sp-view
-    width: 100%
-    margin: 56px 0
-.work__description__text
-  font-size: 15px
-  line-height: 200%
-  +sp-view
-    font-size: 12px
-    line-height: 180%
+    *
+      font-size: 40px
+  .work__text
     font-weight: 300
-.work__gallery
-  width: 100%
-  +gap-bottom(80px)
-  +sp-view
-    +gap-bottom(56px)
-.work__gallery__image
-  width: 1200px
-  height: auto
-  +sp-view
+    padding-top: 24px
+    display: block
+    +sp-view
+      padding-top: 16px
+      font-size: 12px
+    &--first
+      padding-top: 72px
+      +sp-view
+        padding-top: 32px
+    &--link
+      text-decoration: underline
+  .work__thumbnail-wrap
     width: 100%
+    +flex-middle
+    margin-top: 48px
+    +sp-view
+      margin-top: 48px
+  .work__thumbnail
+    width: 500px
+    height: 750px
+    +sp-view
+      width: 200px
+      height: 300px
+  .work__description
+    width: 500px
+    margin: 160px 0
+    +sp-view
+      width: 100%
+      margin: 56px 0
+  .work__description__text
+    font-size: 15px
+    line-height: 200%
+    +sp-view
+      font-size: 12px
+      line-height: 180%
+      font-weight: 300
+  .work__detail
+    display: flex
+    +gap-right(56px)
+    margin-top: 88px
+  .work__detail__title
+
+  .work__detail__text
+    opacity: 0.5
+    padding-top: 8px
+  .work__gallery
+    width: 100%
+    +gap-bottom(80px)
+    +sp-view
+      +gap-bottom(56px)
+  .work__gallery__image
+    width: 1200px
     height: auto
+    +sp-view
+      width: 100%
+      height: auto
 
 .next-work
   position: relative

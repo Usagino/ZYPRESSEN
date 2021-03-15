@@ -16,7 +16,8 @@
 
         .works__list
           n-link.works__item(v-for="(item,i) in $store.state.works" :key="i" :to="`/works/${i}`")
-            img.works__item__thumbnail(:src="item.thumbnail")
+            .works__item__frame
+              img.works__item__thumbnail(:src="item.thumbnail")
             .works__item__info
               p.works__item__text {{item.title}}
               span.works__item__bar
@@ -29,20 +30,20 @@
           h2.about__title Who We Are?
         .about__box
           p.about__description ZYPRESSEN is a creative team that creates digital product designs. We don't believe in stereotypes, and each member of our team is always working with a cutting-edge philosophy. In order to create something new and different, we observe and absorb what our predecessors have built and find new values that have never been seen before.<br>We call this "Different from Others".
+          n-link.next-link(to="/about")
+            span.next-link__bar
+            p.next-link__text See more
     .contact
       .contact__wrap
         .contact__box
           p.contact__detail Contact
         .contact__box
-          h2.contact__title Please<br>Contact!!
+          h2.contact__title Get in<br>Touch!!
         .contact__box
           p.contact__description.contact__move-text Please feel free to contact me anytime. From your dear neighbor ZYPRESSEN.
-          .contact__infomation.contact__move-text
-            a.contact__infomation__link(href="/") info@zypressen.org
-            span /
-            a.contact__infomation__link(href="/") Twitter
-            span /
-            a.contact__infomation__link(href="/") Instagram
+          n-link.next-link(to="/contact")
+            span.next-link__bar
+            p.next-link__text See more
     baseFooter
 </template>
 
@@ -231,7 +232,7 @@ export default {
   +sp-view
     padding-top: 60px
     padding-bottom: 60px
-  &__title-box
+  .works__title-box
     margin-left: 80px
     display: flex
     align-items: center
@@ -239,15 +240,15 @@ export default {
     +sp-view
       +gap-right(16px)
       margin-left: 20px
-    &__text
-      +sp-view
-        font-size: 12px
-        font-weight: 300
-    &__bar
-      height: 1px
-      width: 20px
-      background: var(--color-white)
-  &__list
+  .works__title-box__text
+    +sp-view
+      font-size: 12px
+      font-weight: 300
+  .works__title-box__bar
+    height: 1px
+    width: 20px
+    background: var(--color-white)
+  .works__list
     padding: 0 200px
     padding-top: 36px
     display: flex
@@ -257,26 +258,35 @@ export default {
     +sp-view
       padding: 0 56px
       padding-top: 21px
-  &__item
-    &__thumbnail
-      width: 25vw
-      height: 37.5vw
-      +sp-view
-        width: 200px
-        height: 300px
-    &__info
-      display: flex
-      align-items: center
-      +gap-right(16px)
-      margin-top: 16px
-    &__text
-      +sp-view
-        font-size: 12px
-        font-weight: 300
-    &__bar
-      height: 1px
-      width: 20px
-      background: var(--color-white)
+  // .works__item
+  .works__item__frame
+    width: 25vw
+    height: 37.5vw
+    overflow: hidden
+    +flex-middle
+    background: #ffffff
+    &:active
+      cursor: grabbing !important
+    +sp-view
+      width: 200px
+      height: 300px
+  .works__item__thumbnail
+    width: 70%
+    height: 70%
+    box-shadow: 0px 20px 30px -20px rgba(167, 167, 167, 0.6)
+  .works__item__info
+    display: flex
+    align-items: center
+    +gap-right(16px)
+    margin-top: 16px
+  .works__item__text
+    +sp-view
+      font-size: 12px
+      font-weight: 300
+  .works__item__bar
+    height: 1px
+    width: 20px
+    background: var(--color-white)
 
 
 .about
@@ -371,4 +381,17 @@ export default {
       +sp-view
         font-size: 12px
         font-weight: 300
+
+.next-link
+  display: flex
+  align-items: center
+  margin-top: 56px
+  .next-link__bar
+    height: 1px
+    width: 20px
+    background: #ffffff
+    margin-right: 32px
+  .next-link__text
+    font-size: 15px
+    letter-spacing: 0.6px
 </style>
