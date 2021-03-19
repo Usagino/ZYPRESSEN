@@ -222,7 +222,7 @@ export default {
     display: flex
     +gap-right(56px)
     margin-top: 88px
-  .work__detail__title
+  // .work__detail__title
 
   .work__detail__text
     opacity: 0.5
