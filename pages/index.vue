@@ -78,10 +78,8 @@ export default {
     this.worksDraggable()
     this.scrollCustom()
     this.scrollAnimation()
-    const inVideoEl = this.$('.video-in')
-    const loopVideoEl = this.$('.video-loop')
-    inVideoEl.currentTime = 0
-    loopVideoEl.currentTime = 0
+
+    this.resetVideo()
     this.playVideo()
   },
   created() {},
