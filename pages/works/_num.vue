@@ -8,7 +8,9 @@
         h2.work__title
           .work__title__wrap
             span.work__title__move-text Works Title
-        p.work__text.work__text--first Created : Mar.6.2020
+        .work__info__created
+          p.work__text Created
+          p.work__text.work__info__gray Mar.6.2020
         a.work__text.work__text--link(href="http://yudouhu.org/" target="_blank") View Project
       .work__thumbnail-wrap
         img.work__thumbnail(src="https://images.microcms-assets.io/protected/ap-northeast-1:5f222472-49ae-43ef-9009-85b89c98d6be/service/uchida/media/20201203_1.jpeg?auto=compress&h=500&w=500&fit=clip")
@@ -152,7 +154,7 @@ export default {
   left: 0
   z-index: 2
 .next-thumbnail__image
-  width: 200px
+  width: 100%
   height: 300px
   clip-path: inset(0 100% 0 0%)
 
@@ -168,6 +170,15 @@ export default {
     width: 100%
     +sp-view
       width: 50vw
+    .work__text
+      padding-top: 32px
+  .work__info__created
+    margin-top: 40px
+    +gap-bottom(8px)
+    .work__text
+      padding-top: 0px
+    .work__info__gray
+      opacity: 0.5
   .work__title
     *
       display: block
@@ -197,6 +208,8 @@ export default {
     width: 100%
     +flex-middle
     margin-top: 48px
+    .work__thumbnail
+      width: 100%
     +sp-view
       margin-top: 48px
   .work__thumbnail
