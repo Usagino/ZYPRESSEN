@@ -46,7 +46,6 @@ export default {
   position: fixed
   top: 0px
   left: 0px
-  z-index: 0
   +full-screen
   overflow: hidden
   filter: blur(0px)

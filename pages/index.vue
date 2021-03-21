@@ -230,6 +230,8 @@ export default {
   padding: 140px 0px
   width: 100vw
   overflow-x: hidden
+  position: relative
+  z-index: 2
   +sp-view
     padding-top: 60px
     padding-bottom: 60px
@@ -294,6 +296,8 @@ export default {
   +default-width
   padding-top: 140px
   padding-bottom: 140px
+  position: relative
+  z-index: 2
   +sp-view
     padding-top: 60px
     padding-bottom: 60px
@@ -301,6 +305,7 @@ export default {
     margin-right: auto
   &__box
     overflow: hidden
+    // border: 1px solid red
   &__detail
     font-size: 15px
     +sp-view
@@ -333,6 +338,8 @@ export default {
   padding-top: 140px
   padding-bottom: 240px
   +default-width
+  position: relative
+  z-index: 2
   +sp-view
     padding-top: 60px
     padding-bottom: 120px
