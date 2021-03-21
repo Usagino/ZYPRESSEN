@@ -126,12 +126,14 @@ export default {
     width: 100%
     padding-bottom: 61.7%
     position: relative
+    overflow: hidden
 
   .question__picture-first__image
     position: absolute
     top: 0
     left: 0
     +full-size
+    transform: scale(1.1)
 
 .question__first--right
   margin-left: auto
