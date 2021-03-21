@@ -1,8 +1,12 @@
 <template lang="pug">
   .container(ref="worksContainer")
     .container__back-blur.offset-pos
+    .first
+      ScrollButton
+      .first__title-box
+        p.first__title-box__text 01
+        h2.first__title-box__title Works
     .all-works
-      h1.all-works__title All Works
       .posts
         n-link.posts__item(
           v-for="(item,i) of $store.state.works"
@@ -31,6 +35,7 @@ export default {
     gsap.registerPlugin(ScrollTrigger)
     this.scrollCustom()
     this.enterAnime()
+    this.scrollBlur()
   },
   created() {},
   methods: {
@@ -84,6 +89,16 @@ export default {
       this.bodyScrollBar.addListener(() => {
         this.bodyScrollBar.setPosition(0)
         ScrollTrigger.refresh()
+      })
+    },
+    scrollBlur() {
+      gsap.set('.container__back-blur', { backdropFilter: 'blur(0px)' })
+      gsap.to('.container__back-blur', {
+        backdropFilter: 'blur(10px)',
+        scrollTrigger: {
+          trigger: '.all-works',
+          scrub: true,
+        },
       })
     },
   },
