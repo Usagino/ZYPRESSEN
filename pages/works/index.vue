@@ -11,15 +11,15 @@
       .posts
         n-link.posts__item(
           v-for="(item,i) of $store.state.works"
-          :to="`/works/${i}`"
+          :to="`/works/${item.linkId}`"
           :key="i"
           )
           .posts__thumbnail-box
-            img(:src="item.thumbnail").posts__thumbnail
+            img(:src="item.thumbnailVertical").posts__thumbnail
           .posts__title-box
             p.posts__title-box__text {{item.title}}
             span.posts__title-box__bar
-            time.posts__title-box__text Mar 6.2020
+            time.posts__title-box__text {{item.created}}
     baseFooter
 </template>
 

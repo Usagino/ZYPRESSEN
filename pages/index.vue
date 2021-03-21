@@ -16,13 +16,13 @@
           n-link(to="/works").works__title-box__text All Works
 
         .works__list
-          n-link.works__item(v-for="(item,i) in $store.state.works" :key="i" :to="`/works/${i}`")
+          n-link.works__item(v-for="(item,i) in $store.state.works" :key="i" :to="`/works/${item.linkId}`")
             .works__item__frame
-              img.works__item__thumbnail(:src="item.thumbnail")
+              img.works__item__thumbnail(:src="item.thumbnailVertical")
             .works__item__info
               p.works__item__text {{item.title}}
               span.works__item__bar
-              p.works__item__text Mar 6.2020
+              p.works__item__text {{item.created}}
     .about
       .about__wrap
         .about__box
@@ -65,6 +65,7 @@ export default {
     this.worksDraggable()
     this.scrollCustom()
     this.scrollAnimation()
+    console.log(this.$store.state.works)
   },
   created() {},
   methods: {

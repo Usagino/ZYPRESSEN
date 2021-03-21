@@ -2,36 +2,40 @@
   .container(ref="workContainer" @mousemove="mousemoveNext")
     .container__back-blur.offset-pos
     .next-thumbnail
-      img.next-thumbnail__image(src="https://images.microcms-assets.io/protected/ap-northeast-1:5f222472-49ae-43ef-9009-85b89c98d6be/service/uchida/media/20201203_1.jpeg?auto=compress&h=500&w=500&fit=clip")
+      img.next-thumbnail__image(:src="work.nextthumbnailHorizontal")
     .work
       .work__info
         h2.work__title
           .work__title__wrap
-            span.work__title__move-text Works Title
+            span.work__title__move-text {{work.title}}
         .work__info__created
           p.work__text Created
-          p.work__text.work__info__gray Mar.6.2020
-        a.work__text.work__text--link(href="http://yudouhu.org/" target="_blank") View Project
+          p.work__text.work__info__gray {{work.created}}
+        a.work__text.work__text--link(
+          v-if="work.projectLink"
+          :href="work.projectLink" target="_blank") View Project
       .work__thumbnail-wrap
-        img.work__thumbnail(src="https://images.microcms-assets.io/protected/ap-northeast-1:5f222472-49ae-43ef-9009-85b89c98d6be/service/uchida/media/20201203_1.jpeg?auto=compress&h=500&w=500&fit=clip")
+        img.work__thumbnail(:src="work.thumbnailHorizontal")
       .work__description
-        p.work__description__text Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.
+        p.work__description__text {{work.bodyEn}}
         .work__detail
           .work__detail__box
             p.work__detail__title Media
-            p.work__detail__text Web
+            p.work__detail__text {{work.media}}
           .work__detail__box
             p.work__detail__title Client
-            p.work__detail__text Zypressen
+            p.work__detail__text {{work.client}}
       .work__gallery
-        img(src="https://images.unsplash.com/photo-1588392382834-a891154bca4d?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2855&q=80").work__gallery__image
-        img(src="https://images.unsplash.com/photo-1588392382834-a891154bca4d?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2855&q=80").work__gallery__image
-        img(src="https://images.unsplash.com/photo-1588392382834-a891154bca4d?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2855&q=80").work__gallery__image
+        img.work__gallery__image(
+          v-for="(item, index) in work.gallery"
+          :key="index"
+          :src="item"
+          )
     .next-work(
       @mouseover="mouseoverNext"
       @mouseleave="mouseleaveNext"
       )
-      n-link.next-work__wrap(to="/works/0")
+      n-link.next-work__wrap(:to="`/works/${work.nextLinkId}`")
         p.next-work__text(v-for="item of 8") Next
     baseFooter
 </template>
@@ -44,6 +48,7 @@ import { ScrollTrigger } from 'gsap/dist/ScrollTrigger.min.js'
 export default {
   data() {
     return {
+      work: {},
       mouseOffset: {
         offsetY: 0,
         clientY: 0,
@@ -54,9 +59,17 @@ export default {
     gsap.registerPlugin(ScrollTrigger)
     this.scrollCustom()
     this.enterAnime()
+    console.log(this.work)
   },
-  created() {},
+  created() {
+    this.loadWorksData()
+  },
   methods: {
+    loadWorksData() {
+      this.work = this.$store.state.works.find(
+        (item) => item.linkId === this.$route.params.num
+      )
+    },
     enterAnime() {
       gsap.set('.work__thumbnail', { y: '100%' })
       gsap.set('.work__title__move-text', { y: '100%' })
@@ -154,8 +167,8 @@ export default {
   left: 0
   z-index: 2
 .next-thumbnail__image
-  width: 100%
-  height: 300px
+  width: 300px
+  height: auto
   clip-path: inset(0 100% 0 0%)
 
 .work
