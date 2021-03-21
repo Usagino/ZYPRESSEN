@@ -7,16 +7,18 @@
         h2.first__title-box__title About
     .question
       .question__first
-        p.question__first__degree 01.About
-        h2.question__first__title Who We Are?
+        .question__first__title-box
+          p.question__first__degree 01.About
+          h2.question__first__title Who We Are?
         .question__first__sentence-box
           p.question__first__sentence ZYPRESSEN is a creative team that creates digital product designs. We don't believe in stereotypes, and each member of our team is always working with a cutting-edge philosophy. In order to create something new and different, we observe and absorb what our predecessors have built and find new values that have never been seen before.<br>We call this "Different from Others".
       .question__picture-first
         img.question__picture-first__image(src="/dummy/about_1.jpg")
 
-      .question__first
-        p.question__first__degree 02. Philosophy
-        h2.question__first__title Diffrent From <br>Others!!
+      .question__first.question__first--right
+        .question__first__title-box
+          p.question__first__degree 02. Philosophy
+          h2.question__first__title Diffrent From <br>Others!!
         .question__first__sentence-box
           p.question__first__sentence ZYPRESSEN is a creative team that creates digital product designs. We don't believe in stereotypes, and each member of our team is always working with a cutting-edge philosophy. In order to create something new and different, we observe and absorb what our predecessors have built and find new values that have never been seen before.<br>We call this "Different from Others".
 
@@ -83,30 +85,32 @@ export default {
 
 
 .question
-  +default-width(80px,1200px)
+  +default-width(80px,1600px)
   +gap-bottom(280px)
-  padding-top: 240px
+  // padding-top: 240px
   +sp-view
     +gap-bottom(120px)
-  // .question__first
+  .question__first
+    width: fit-content
+    margin-right: auto
   .question__first__degree
     margin-bottom: 24px
     +sp-view
       font-size: 12px
       letter-spacing: 0.6px
   .question__first__title
-    font-size: 160px
+    font-size: 144px
     letter-spacing: 4px
     font-weight: 300
     line-height: 100%
+    width: fit-content
     +sp-view
       font-size: 40px
       letter-spacing: 1.4px
 
   .question__first__sentence-box
-    margin-top: 160px
+    margin-top: 140px
     width: 600px
-    margin-left: auto
     +sp-view
       width: 100%
       margin-top: 40px
@@ -128,4 +132,8 @@ export default {
     top: 0
     left: 0
     +full-size
+
+.question__first--right
+  margin-left: auto
+  margin-right: 0 !important
 </style>
