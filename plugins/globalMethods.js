@@ -32,7 +32,7 @@ Vue.mixin({
       const inVideoEl = this.$('.video-in')
       const loopVideoEl = this.$('.video-loop')
       inVideoEl.currentTime = 0
-      loopVideoEl.currentTime = 0
+      loopVideoEl.currentTime = 0.01
     },
     playVideo(el) {
       if (this.$('.video-in')) {

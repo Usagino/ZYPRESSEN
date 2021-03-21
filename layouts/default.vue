@@ -4,12 +4,16 @@
     baseHeader
     baseMenu
     nuxt
+    .transition-screen
 </template>
 
 <script>
 import deviceMixin from '@/assets/mixin/device.js'
+import gsap from 'gsap' // eslint-disable-line
+
 export default {
   mixins: [deviceMixin],
+
   created() {
     if (process.browser) {
       this.$('html, body').classList.add('index')
@@ -19,13 +23,4 @@ export default {
 }
 </script>
 
-<style lang="sass">
-.bg-movie
-  +full-screen
-  position: fixed
-  top: 0
-  z-index: -1
-  &__movie
-    +full-size
-    object-fit: cover
-</style>
+<style lang="sass"></style>

@@ -55,6 +55,38 @@ import { ScrollTrigger } from 'gsap/dist/ScrollTrigger.min.js'
 import { Draggable } from 'gsap/dist/Draggable.min.js'
 
 export default {
+  transition: {
+    mode: 'out-in',
+    css: false,
+    enter(el, done) {
+      // done()
+      const tl = gsap.timeline({
+        onComplete: () => {
+          done()
+        },
+      })
+      tl.set('.transition-screen', { transformOrigin: 'top center' })
+      tl.to('.transition-screen', {
+        duration: 0.7,
+        ease: 'expo.out',
+        scaleY: 0,
+      })
+    },
+    leave(el, done) {
+      // done()
+      const tl = gsap.timeline({
+        onComplete: () => {
+          done()
+        },
+      })
+      tl.set('.transition-screen', { transformOrigin: 'bottom center' })
+      tl.to('.transition-screen', {
+        duration: 0.7,
+        ease: 'expo.out',
+        scaleY: 1,
+      })
+    },
+  },
   data() {
     return {
       bodyScrollBar: null,

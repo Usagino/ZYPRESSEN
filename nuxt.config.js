@@ -1,5 +1,7 @@
 import metaData from './assets/js/metaData.js' // eslint-disable-line
 const meta = metaData('https://zypressen.vercel.app/').data
+import gsap from 'gsap' // eslint-disable-line
+
 require('dotenv').config()
 export default {
   target: 'static',
@@ -78,4 +80,5 @@ export default {
   build: {
     // transpile: ['gsap'],
   },
+  transition: 'hogehogehoge',
 }
