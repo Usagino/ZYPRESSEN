@@ -4,15 +4,13 @@
     :src="`/movie/in-${name}.mp4`"
     preload="metadata"
     muted
-    playsinline
-  )
+    playsinline)
   video.back-movie__video.video-loop(
     :src="`/movie/loop-${name}.mp4`"
     preload="metadata"
     muted
     playsinline
-    loop
-  )
+    loop)
 </template>
 
 <script>
@@ -49,6 +47,9 @@ export default {
   +full-screen
   overflow: hidden
   filter: blur(0px)
+  background-image: url("/movie/poster.png")
+  background-size: cover
+  background-position: center
   &__video
     position: absolute
     left: 50%
