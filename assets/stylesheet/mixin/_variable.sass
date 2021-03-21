@@ -4,6 +4,8 @@ $pc-sm-size: "(max-width: 992px)"
 $pc-md-size: "(max-width: 1200px)"
 $pc-lg-size: "(max-width: 1580px)"
 
+$sp-size-over-size: "(min-width: 751px)"
+
 $pc-sm-over-size: "(min-width: 993px)"
 $pc-md-over-size: "(min-width: 1201px)"
 $pc-lg-over-size: "(min-width: 1581px)"
@@ -19,6 +21,11 @@ $pc-lg-only-size: "(min-width: 1201px) and (max-width: 1580px)"
 =sp-view
   +respond-to($sp-size)
     @content
+
+=sp-view-over
+  +respond-to($sp-size-over-size)
+    @content
+
 
 =tablet-size
   +respond-to("(max-width: 770px)")

@@ -37,7 +37,7 @@
       )
       n-link.next-work__wrap(:to="`/works/${work.nextLinkId}`")
         p.next-work__text(v-for="item of 8") Next
-    baseFooter
+    baseFooter(:scrollBar="bodyScrollBar")
 </template>
 
 <script>

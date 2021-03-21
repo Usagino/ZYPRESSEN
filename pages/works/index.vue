@@ -20,7 +20,7 @@
             p.posts__title-box__text {{item.title}}
             span.posts__title-box__bar
             time.posts__title-box__text {{item.created}}
-    baseFooter
+    baseFooter(:scrollBar="bodyScrollBar")
 </template>
 
 <script>

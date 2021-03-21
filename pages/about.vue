@@ -28,7 +28,7 @@
     n-link(to="/contact").marquee-link
       .marquee-link__wrap
         span(v-for="item of 8").marquee-link__wrap__text Contact
-    baseFooter
+    baseFooter(:scrollBar="bodyScrollBar")
 </template>
 
 <script>

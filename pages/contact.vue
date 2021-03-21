@@ -25,7 +25,7 @@
       img.gallery__item(src="/dummy.jpg")
       img.gallery__item(src="/dummy.jpg")
       img.gallery__item(src="/dummy.jpg")
-  baseFooter
+  baseFooter(:scrollBar="bodyScrollBar")
 </template>
 
 <script>

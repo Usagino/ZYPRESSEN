@@ -45,7 +45,7 @@
           n-link.next-link(to="/contact")
             span.next-link__bar
             p.next-link__text See more
-    baseFooter
+    baseFooter(:scrollBar="bodyScrollBar")
 </template>
 
 <script>

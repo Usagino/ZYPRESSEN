@@ -15,7 +15,7 @@
         li
           a(href="/").base-footer__social__link Info@zypressen.org
     small.base-footer__copy ©2021ZYPRESSEN
-    .base-footer__scroll
+    .base-footer__scroll(@click="scrollTop()")
       .base-footer__scroll__circle
         .base-footer__scroll__text-wrap
           p.base-footer__scroll__text Back Top
@@ -24,10 +24,18 @@
 
 <script>
 // import Scrollbar, { ScrollbarPlugin } from 'smooth-scrollbar'
-// import gsap from 'gsap' // eslint-disable-line
+import gsap from 'gsap' // eslint-disable-line
 // import { ScrollTrigger } from 'gsap/dist/ScrollTrigger.min.js'
 
 export default {
+  props: {
+    scrollBar: {
+      default: () => {
+        return {}
+      },
+      type: Object,
+    },
+  },
   data() {
     return {}
   },
@@ -35,7 +43,11 @@ export default {
     // gsap.registerPlugin(ScrollTrigger)
   },
   created() {},
-  methods: {},
+  methods: {
+    scrollTop() {
+      this.scrollBar.scrollTo(0, 0, 1000)
+    },
+  },
 }
 </script>
 
@@ -124,15 +136,16 @@ export default {
     &__bottom
       position: absolute
       top: 16px
-    &:hover
-      & .base-footer__scroll__circle
-        transform: scale(0.9)
-      & .base-footer__scroll__text-wrap
-        transform: scale(1.2)
-      & .base-footer__scroll__text
-        transform: translateY(-16px)
-        transition: all .3s ease .2s
-        animation: none
+    +sp-view-over
+      &:hover
+        & .base-footer__scroll__circle
+          transform: scale(0.9)
+        & .base-footer__scroll__text-wrap
+          transform: scale(1.2)
+        & .base-footer__scroll__text
+          transform: translateY(-16px)
+          transition: all .3s ease .2s
+          animation: none
 
     @keyframes scroll-text
       0%

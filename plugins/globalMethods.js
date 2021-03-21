@@ -2,7 +2,9 @@ import Vue from 'vue'
 
 Vue.mixin({
   data() {
-    return {}
+    return {
+      smoothScrollBar: null,
+    }
   },
   methods: {
     $(selector, el) {
