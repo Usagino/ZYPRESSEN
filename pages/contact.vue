@@ -35,7 +35,9 @@ import { ScrollTrigger } from 'gsap/dist/ScrollTrigger.min.js'
 
 export default {
   data() {
-    return {}
+    return {
+      bodyScrollBar: null,
+    }
   },
   mounted() {
     gsap.registerPlugin(ScrollTrigger)

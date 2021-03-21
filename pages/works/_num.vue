@@ -48,6 +48,7 @@ import { ScrollTrigger } from 'gsap/dist/ScrollTrigger.min.js'
 export default {
   data() {
     return {
+      bodyScrollBar: null,
       work: {},
       mouseOffset: {
         offsetY: 0,

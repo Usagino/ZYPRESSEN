@@ -38,7 +38,9 @@ import { ScrollTrigger } from 'gsap/dist/ScrollTrigger.min.js'
 
 export default {
   data() {
-    return {}
+    return {
+      bodyScrollBar: null,
+    }
   },
   mounted() {
     // this.$('html, body').classList.remove('index')
