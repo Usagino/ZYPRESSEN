@@ -100,7 +100,7 @@ export default {
 
 
 .question
-  +default-width(160px,1600px)
+  +default-width(120px,1600px)
   +gap-bottom(280px)
   // padding-top: 240px
   +sp-view
