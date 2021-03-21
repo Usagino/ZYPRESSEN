@@ -1,19 +1,6 @@
 <template lang="pug">
   .container(ref="topContainer")
-    .back-movie.offset-pos
-      video.back-movie__video.video-in(
-        src="/movie/in-about.mp4"
-        preload="metadata"
-        muted
-        playsinline
-      )
-      video.back-movie__video.video-loop(
-        src="/movie/loop-about.mp4"
-        preload="metadata"
-        muted
-        playsinline
-        loop
-      )
+    backMovie(name="about")
     .top
       .top__title
         .top__title__wrap
@@ -78,7 +65,6 @@ export default {
     this.worksDraggable()
     this.scrollCustom()
     this.scrollAnimation()
-    this.setVideo()
   },
   created() {},
   methods: {

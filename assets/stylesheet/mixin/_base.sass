@@ -118,29 +118,3 @@ img
     +sp-view
       font-size: 40px
       letter-spacing: 2px
-
-
-.back-movie
-  z-index: -1
-  position: fixed
-  top: 0px
-  left: 0px
-  z-index: 0
-  +full-screen
-  overflow: hidden
-  filter: blur(0px)
-  &__video
-    position: absolute
-    left: 50%
-    top: 50%
-    min-width: 100%
-    min-height: 100%
-    transform: translate(-50%,-50%)
-    +sp-view
-      height: var(--wh, 100vh)
-      width: auto
-      // transform: translate(-50%,-50%) scale(0.65)
-  .video-in
-    z-index: 3
-  .video-loop
-    z-index: 2

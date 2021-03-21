@@ -29,8 +29,7 @@ export default {
 
     lottoleAnime.addEventListener('complete', () => {
       if (this.$('.back-movie__video')) {
-        this.resetVideo()
-        this.playVideo()
+        this.setVideo()
         this.$('.base-loading').classList.add('already_loaded')
       }
       const tl = gsap.timeline()

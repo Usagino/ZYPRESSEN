@@ -1,19 +1,6 @@
 <template lang="pug">
   .container(ref="aboutContainer")
-    .back-movie.offset-pos
-      video.back-movie__video.video-in(
-        src="/movie/in-about.mp4"
-        preload="metadata"
-        muted
-        playsinline
-      )
-      video.back-movie__video.video-loop(
-        src="/movie/loop-about.mp4"
-        preload="metadata"
-        muted
-        playsinline
-        loop
-      )
+    backMovie(name="about")
     .first
       ScrollButton
       .first__title-box
@@ -57,7 +44,6 @@ export default {
     // this.$('html, body').classList.remove('index')
     gsap.registerPlugin(ScrollTrigger)
     this.scrollCustom()
-    this.setVideo()
   },
   created() {},
   methods: {
