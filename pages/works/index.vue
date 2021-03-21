@@ -1,5 +1,19 @@
 <template lang="pug">
   .container(ref="worksContainer")
+    .back-movie.offset-pos
+      video.back-movie__video.video-in(
+        src="/movie/in-about.mp4"
+        preload="metadata"
+        muted
+        playsinline
+      )
+      video.back-movie__video.video-loop(
+        src="/movie/loop-about.mp4"
+        preload="metadata"
+        muted
+        playsinline
+        loop
+      )
     .container__back-blur.offset-pos
     .first
       ScrollButton
@@ -36,6 +50,7 @@ export default {
     this.scrollCustom()
     this.enterAnime()
     this.scrollBlur()
+    this.setVideo()
   },
   created() {},
   methods: {

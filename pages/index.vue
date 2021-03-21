@@ -78,9 +78,7 @@ export default {
     this.worksDraggable()
     this.scrollCustom()
     this.scrollAnimation()
-
-    this.resetVideo()
-    this.playVideo()
+    this.setVideo()
   },
   created() {},
   methods: {

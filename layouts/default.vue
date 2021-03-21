@@ -4,8 +4,6 @@
     baseHeader
     baseMenu
     nuxt
-    .bg-movie
-      img.bg-movie__movie(src="/dummy/bg_img.png")
 </template>
 
 <script>

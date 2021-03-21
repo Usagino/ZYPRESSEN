@@ -17,6 +17,12 @@ Vue.mixin({
       }
       return el.querySelectorAll(selector)
     },
+    setVideo() {
+      if (this.$('.already_loaded')) {
+        this.resetVideo()
+        this.playVideo()
+      }
+    },
     resetVideo(el) {
       const $ = (element) => {
         return el.querySelectorAll(element)
@@ -27,20 +33,22 @@ Vue.mixin({
       loopVideoEl.currentTime = 0
     },
     playVideo(el) {
-      const $ = (element) => {
-        return el.querySelectorAll(element)
-      }
-      const inVideoEl = this.$('.video-in')
-      const loopVideoEl = this.$('.video-loop')
-
-      inVideoEl.play()
-      inVideoEl.addEventListener('timeupdate', function () {
-        loopVideoEl.currentTime = 0.01
-        if (inVideoEl.currentTime === inVideoEl.duration) {
-          inVideoEl.style.opacity = 0
-          loopVideoEl.play()
+      if (this.$('.video-in')) {
+        const $ = (element) => {
+          return el.querySelectorAll(element)
         }
-      })
+        const inVideoEl = this.$('.video-in')
+        const loopVideoEl = this.$('.video-loop')
+
+        inVideoEl.play()
+        inVideoEl.addEventListener('timeupdate', function () {
+          loopVideoEl.currentTime = 0.01
+          if (inVideoEl.currentTime === inVideoEl.duration) {
+            inVideoEl.style.opacity = 0
+            loopVideoEl.play()
+          }
+        })
+      }
     },
   },
 })

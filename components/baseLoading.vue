@@ -25,9 +25,14 @@ export default {
     })
     window.setTimeout(function () {
       lottoleAnime.play()
-    }, 3000)
+    }, 1000)
 
     lottoleAnime.addEventListener('complete', () => {
+      if (this.$('.back-movie__video')) {
+        this.resetVideo()
+        this.playVideo()
+        this.$('.base-loading').classList.add('already_loaded')
+      }
       const tl = gsap.timeline()
       tl.to('.base-loading', { duration: 0.5, opacity: 0 })
       tl.set('.base-loading', { display: 'none' })
