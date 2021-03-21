@@ -166,6 +166,9 @@ export default {
   top: 0
   left: 0
   z-index: 2
+  +sp-view
+    opacity: 0
+    pointer-events: none
 .next-thumbnail__image
   width: 300px
   height: auto
@@ -201,9 +204,9 @@ export default {
       letter-spacing: 1.4px
   .work__title__wrap
     overflow: hidden
-  +sp-view
-    *
-      font-size: 40px
+    +sp-view
+      *
+        font-size: 40px
   .work__text
     font-weight: 300
     padding-top: 24px
