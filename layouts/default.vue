@@ -1,5 +1,6 @@
 <template lang="pug">
   div(:style="style")
+    baseLoading
     baseHeader
     baseMenu
     nuxt
