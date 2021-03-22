@@ -80,6 +80,7 @@ export default {
   methods: {
     scrollCustom() {
       Scrollbar.destroyAll()
+this.bodyScrollBar = null
       const el = this.$refs.aboutContainer
       this.bodyScrollBar = Scrollbar.init(el, {
         damping: this.$ua.isFromSmartphone() ? 0.1 : 0.9,

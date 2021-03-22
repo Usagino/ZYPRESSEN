@@ -98,6 +98,7 @@ export default {
     this.scrollCustom()
     this.scrollAnimation()
     console.log(this.$store.state.works)
+    console.log('hoge')
   },
   created() {},
   methods: {
@@ -131,6 +132,7 @@ export default {
     },
     scrollCustom() {
       Scrollbar.destroyAll()
+      this.bodyScrollBar = null
       const el = this.$refs.topContainer
       this.bodyScrollBar = Scrollbar.init(el, {
         damping: this.$ua.isFromSmartphone() ? 0.1 : 0.9,
