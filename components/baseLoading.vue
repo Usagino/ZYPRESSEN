@@ -17,13 +17,13 @@ export default {
   },
   mounted() {
     // gsap.registerPlugin(ScrollTrigger)
-    console.log(window.innerWidth)
+    console.log(window.innerWidth > 750 ? 'animeDataPC' : 'animeDataSP')
     const lottoleAnime = lottie.loadAnimation({
       container: this.$('.base-loading__film'),
       renderer: 'svg',
       loop: false,
       autoplay: false,
-      animationData: window.innerWidth > 400 ? animeDataPC : animeDataSP,
+      animationData: window.innerWidth > 750 ? animeDataPC : animeDataSP,
     })
     window.setTimeout(function () {
       lottoleAnime.play()
