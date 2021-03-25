@@ -8,7 +8,8 @@
 import gsap from 'gsap' // eslint-disable-line
 // import { ScrollTrigger } from 'gsap/dist/ScrollTrigger.min.js'
 import lottie from 'lottie-web'
-import animationData from '@/assets/json/zyp_loading.json'
+import animeDataPC from '@/assets/json/pc_loading.json'
+import animeDataSP from '@/assets/json/sp_loading.json'
 
 export default {
   data() {
@@ -16,12 +17,13 @@ export default {
   },
   mounted() {
     // gsap.registerPlugin(ScrollTrigger)
+    console.log(window.innerWidth)
     const lottoleAnime = lottie.loadAnimation({
       container: this.$('.base-loading__film'),
       renderer: 'svg',
       loop: false,
       autoplay: false,
-      animationData,
+      animationData: window.innerWidth > 400 ? animeDataPC : animeDataSP,
     })
     window.setTimeout(function () {
       lottoleAnime.play()
