@@ -1,6 +1,6 @@
 <template lang="pug">
   .container(ref="topContainer")
-    backMovie(name="about")
+    backMovie(name="top")
     .top
       .top__title
         .top__title__wrap
