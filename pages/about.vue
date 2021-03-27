@@ -15,7 +15,7 @@
         .question__first__sentence-box
           p.question__first__sentence ZYPRESSEN is a creative team that creates digital product designs. We don't believe in stereotypes, and each member of our team is always working with a cutting-edge philosophy. In order to create something new and different, we observe and absorb what our predecessors have built and find new values that have never been seen before.<br>We call this "Different from Others".
       .question__picture-first
-        img.question__picture-first__image(src="/dummy/about_1.jpg")
+        img.question__picture-first__image(src="/about_1.png")
 
       .question__first.question__first--right
         .question__first__title-box
@@ -63,7 +63,11 @@ export default {
         },
       })
       tl.set('.transition-screen', { transformOrigin: 'bottom center' })
-      tl.to('.transition-screen', { duration: 0.7, ease: 'expo.out', scaleY: 1 })
+      tl.to('.transition-screen', {
+        duration: 0.7,
+        ease: 'expo.out',
+        scaleY: 1,
+      })
     },
   },
   data() {
@@ -80,7 +84,7 @@ export default {
   methods: {
     scrollCustom() {
       Scrollbar.destroyAll()
-this.bodyScrollBar = null
+      this.bodyScrollBar = null
       const el = this.$refs.aboutContainer
       this.bodyScrollBar = Scrollbar.init(el, {
         damping: this.$ua.isFromSmartphone() ? 0.1 : 0.9,
