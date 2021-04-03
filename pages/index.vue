@@ -39,7 +39,7 @@
         .contact__box
           p.contact__detail Contact
         .contact__box
-          h2.contact__title Get in<br>Touch!!
+          h2.contact__title Get in Touch!!
         .contact__box
           p.contact__description.contact__move-text Please feel free to contact me anytime. From your dear neighbor ZYPRESSEN.
           n-link.next-link(to="/contact")
@@ -247,14 +247,15 @@ export default {
   .top__title
     position: absolute
     bottom: 80px
-    left: 80px
+    left: 0
+    +default-width
     +sp-view
       bottom: 32px
-      left: 20px
+      left: 0px
   .top__wrap
     overflow: hidden
   .top__title__text
-    font-size: 144px
+    font-size: 6vw
     letter-spacing: 4px
     font-weight: 300
     +sp-view
@@ -262,14 +263,14 @@ export default {
       letter-spacing: 1.4px
 
 .works
-  padding: 140px 0px
+  padding: 12vw 0 6vw
   width: 100vw
   overflow-x: hidden
   position: relative
   z-index: 2
   +sp-view
-    padding-top: 60px
-    padding-bottom: 60px
+    padding-top: 80px
+    padding-bottom: 0px
   .works__title-box
     margin-left: 80px
     display: flex
@@ -334,29 +335,29 @@ export default {
   position: relative
   z-index: 2
   +sp-view
-    padding-top: 60px
-    padding-bottom: 60px
-  &__wrap
+    padding-top: 80px
+    padding-bottom: 0px
+  .about__wrap
     margin-right: auto
-  &__box
+  .about__box
     overflow: hidden
     // border: 1px solid red
-  &__detail
+  .about__detail
     font-size: 15px
     +sp-view
       font-weight: 300
       font-size: 12px
-  &__title
+  .about__title
     padding-top: 24px
-    font-size: 144px
+    font-size: 6vw
     font-weight: 300
     letter-spacing: 4px
     +sp-view
       font-size: 40px
       letter-spacing: 4px
       padding-top: 16px
-  &__description
-    padding-top: 160px
+  .about__description
+    padding-top: 56px
     width: 480px
     font-size: 15px
     line-height: 200%
@@ -369,30 +370,28 @@ export default {
       width: 100%
 
 .contact
-
-  padding-top: 140px
-  padding-bottom: 240px
+  padding: 6vw 120px 12vw
   +default-width
   position: relative
   z-index: 2
   +sp-view
-    padding-top: 60px
-    padding-bottom: 120px
-  &__wrap
+    padding-top: 80px
+    padding-bottom: 140px
+  .contact__wrap
     width: fit-content
     margin-left: auto
-  &__box
+  .contact__box
     overflow: hidden
-  &__detail
+  .contact__detail
     font-size: 15px
     width: fit-content
     +sp-view
       font-weight: 300
       font-size: 12px
-  &__title
+  .contact__title
     width: fit-content
     font-weight: 300
-    font-size: 144px
+    font-size: 6vw
     line-height: 100%
     padding-top: 24px
     +sp-view
@@ -400,7 +399,7 @@ export default {
       letter-spacing: 4px
       padding-top: 16px
 
-  &__description, &__infomation
+  .contact__description, .contact__infomation
     font-size: 15px
     line-height: 200%
     letter-spacing: 1px
@@ -409,13 +408,13 @@ export default {
       width: 100%
       font-weight: 300
       font-size: 12px
-  &__description
-    padding-top: 160px
+  .contact__description
+    padding-top: 56px
     +sp-view
       padding-top: 40px
       line-height: 180%
 
-  &__infomation
+  .contact__infomation
     +gap-right(16px)
     +sp-view
       +gap-right(8px)
@@ -428,13 +427,13 @@ export default {
 .next-link
   display: flex
   align-items: center
-  margin-top: 56px
+  margin-top: 40px
   .next-link__bar
     height: 1px
     width: 20px
     background: #ffffff
-    margin-right: 32px
+    margin-right: 24px
   .next-link__text
-    font-size: 15px
+    font-size: 12px
     letter-spacing: 0.6px
 </style>

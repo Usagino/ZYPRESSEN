@@ -58,7 +58,7 @@ export default {
     min-height: 100%
     transform: translate(-50%,-50%)
     +sp-view
-      transform: translate(-49%,-50%)
+      transform: translate(-50%,-50%)
       height: var(--wh, 100vh)
       width: auto
       // transform: translate(-50%,-50%) scale(0.65)

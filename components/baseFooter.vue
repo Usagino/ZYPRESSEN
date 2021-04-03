@@ -57,24 +57,24 @@ export default {
   padding-bottom: 80px
   +sp-view
     padding-bottom: 28px
-  &__wrap
+  .base-footer__wrap
     border-top: 2px solid var(--color-white)
-    padding-top: 200px
+    padding-top: 140px
     position: relative
     +sp-view
       padding-top: 32px
-  &__info
+  .base-footer__info
     display: flex
     +sp-view
       width: 100%
-  &__logo
+  .base-footer__logo
     margin-right: 80px
     width: 120px
     height: auto
     +sp-view
       margin-right: 48px
       width: 80px
-  &__menu, &__social
+  .base-footer__menu, .base-footer__social
     margin-right: 40px
     +gap-bottom(32px)
     +sp-view
@@ -86,12 +86,12 @@ export default {
       +sp-view
         font-size: 12px
         font-weight: 300
-  &__social
+  .base-footer__social
     &__link
       text-decoration: underline
-  &__copy
+  .base-footer__copy
     display: block
-    margin-top: 200px
+    margin-top: 140px
     font-size: 15px
     letter-spacing: 0.6px
     +sp-view
