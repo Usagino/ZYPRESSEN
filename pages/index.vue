@@ -7,7 +7,7 @@
           h2.top__title__text Diffrent From
         .top__title__wrap
           h2.top__title__text Others!!
-      ScrollButton
+        ScrollButton.top__title__scroll-buttton
     .works
       .works__wrap
         .works__title-box
@@ -261,6 +261,8 @@ export default {
     +sp-view
       font-size: 40px
       letter-spacing: 1.4px
+  .top__title__scroll-buttton
+    bottom: 0
 
 .works
   padding: 12vw 0 6vw
