@@ -14,3 +14,5 @@ For detailed explanation on how things work, check out [Nuxt.js docs](https://nu
 
 更新したら git pull
 これはプルできるのかテスト
+
+できてるよ
