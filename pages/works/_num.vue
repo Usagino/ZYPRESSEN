@@ -71,7 +71,11 @@ export default {
         },
       })
       tl.set('.transition-screen', { transformOrigin: 'bottom center' })
-      tl.to('.transition-screen', { duration: 0.7, ease: 'expo.out', scaleY: 1 })
+      tl.to('.transition-screen', {
+        duration: 0.7,
+        ease: 'expo.out',
+        scaleY: 1,
+      })
     },
   },
   data() {
@@ -156,7 +160,7 @@ export default {
 
     scrollCustom() {
       Scrollbar.destroyAll()
-this.bodyScrollBar = null
+      this.bodyScrollBar = null
       const el = this.$refs.workContainer
       this.bodyScrollBar = Scrollbar.init(el, {
         damping: this.$ua.isFromSmartphone() ? 0.1 : 0.9,
@@ -205,8 +209,8 @@ this.bodyScrollBar = null
   clip-path: inset(0 100% 0 0%)
 
 .work
-  +default-width(80px,1200px)
-  padding: 200px 0 240px
+  +default-width(80px,2000px)
+  padding: 200px 140px 12vw
   position: relative
   z-index: 2
   +sp-view

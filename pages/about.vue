@@ -122,21 +122,26 @@ export default {
 
 
 .question
-  +default-width(120px,1600px)
-  +gap-bottom(280px)
+  +default-width(140px)
+  +gap-bottom(120px)
   // padding-top: 240px
+  margin: 12vw auto
   +sp-view
     +gap-bottom(120px)
+    padding: 80px 0 160px
+    +default-width(140px)
   .question__first
     width: fit-content
     margin-right: auto
+    +sp-view
+      margin: 0 0 40px
   .question__first__degree
     margin-bottom: 24px
     +sp-view
       font-size: 12px
       letter-spacing: 0.6px
   .question__first__title
-    font-size: 144px
+    font-size: 6vw
     letter-spacing: 4px
     font-weight: 300
     line-height: 100%
@@ -146,7 +151,7 @@ export default {
       letter-spacing: 1.4px
 
   .question__first__sentence-box
-    margin-top: 140px
+    margin-top: 120px
     width: 600px
     +sp-view
       width: 100%
@@ -171,8 +176,12 @@ export default {
     left: 0
     +full-size
     transform: scale(1.1)
+    height: auto
 
 .question__first--right
   margin-left: auto
   margin-right: 0 !important
+  margin-top: 12vw
+  +sp-view
+    padding-top: 40px
 </style>

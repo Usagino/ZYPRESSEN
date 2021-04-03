@@ -54,7 +54,11 @@ export default {
         },
       })
       tl.set('.transition-screen', { transformOrigin: 'bottom center' })
-      tl.to('.transition-screen', { duration: 0.7, ease: 'expo.out', scaleY: 1 })
+      tl.to('.transition-screen', {
+        duration: 0.7,
+        ease: 'expo.out',
+        scaleY: 1,
+      })
     },
   },
   data() {
@@ -95,7 +99,7 @@ export default {
     },
     scrollCustom() {
       Scrollbar.destroyAll()
-this.bodyScrollBar = null
+      this.bodyScrollBar = null
       const el = this.$refs.worksContainer
       this.bodyScrollBar = Scrollbar.init(el, {
         damping: this.$ua.isFromSmartphone() ? 0.1 : 0.9,
@@ -140,13 +144,13 @@ this.bodyScrollBar = null
 <style lang="sass" scoped>
 
 .all-works
-  padding: 200px 0
+  padding: 12vw 0
   z-index: 2
   position: relative
   width: fit-content
   margin: auto
   +sp-view
-    padding: 106px 0 160px
+    padding: 80px 0 160px
 .all-works__title
   font-size: 40px
   font-weight: 300
