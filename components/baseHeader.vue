@@ -8,8 +8,12 @@
         button.base-header__lang--ja Ja
     .base-header__left
       ul.base-header__menu
-        li(v-for="item in ['Works','About','Contact']")
-          n-link(:to="`/${item.toLowerCase()}`").base-header__menu__link {{item}}
+        li
+          n-link(to="/").base-header__menu__link Top
+        li
+          n-link(to="/works").base-header__menu__link Works
+        li
+          n-link(to="/about").base-header__menu__link About
 </template>
 
 <script>
