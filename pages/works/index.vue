@@ -16,10 +16,10 @@
           )
           .posts__thumbnail-box
             img(:src="item.thumbnailVertical").posts__thumbnail
-          .posts__title-box
-            p.posts__title-box__text {{item.title}}
-            span.posts__title-box__bar
-            time.posts__title-box__text {{item.created}}
+            .posts__title-box
+              p.posts__title-box__text {{item.title}}
+              span.posts__title-box__bar
+              time.posts__title-box__text {{item.media}}
     baseFooter(:scrollBar="bodyScrollBar")
 </template>
 
@@ -175,27 +175,32 @@ export default {
     background: white
     +flex-middle
     overflow: hidden
+    position: relative
   .posts__thumbnail
     width: 100%
     height: 100%
     transform: scale(0.7)
+    box-shadow: 0px 20px 30px -20px rgba(167, 167, 167, 0.6)
     +sp-view
       width: 200px
       height: 300px
   .posts__title-box
+    position: absolute
+    bottom: 2vw
     display: flex
     align-items: center
     +gap-right(16px)
     padding-top: 16px
   .posts__title-box__bar
     height: 1px
-    width: 32px
-    background: var(--color-white)
+    width: 20px
+    background: #888888
     +sp-view
       width: 20px
   .posts__title-box__text
     font-size: 15px
     font-weight: 300
+    color: #888888
     +sp-view
       font-size: 12px
 </style>
