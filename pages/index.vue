@@ -7,6 +7,7 @@
           h2.top__title__text Diffrent From
         .top__title__wrap
           h2.top__title__text Others!!
+    .screen
 </template>
 
 <script>
@@ -56,6 +57,14 @@ export default {
   mounted() {
     gsap.registerPlugin(ScrollTrigger, Draggable)
     console.log(this.$store.state.works)
+    window.onmousewheel = (event) => {
+      console.log(event.wheelDelta)
+      gsap.to('.screen', { duration: 1, y: event.wheelDelta })
+      if (event.wheelDelta < -600) {
+        console.log('hi')
+        this.$router.push('/works')
+      }
+    }
   },
   created() {},
   methods: {},
@@ -85,4 +94,13 @@ export default {
       letter-spacing: 1.4px
   .top__title__scroll-buttton
     bottom: 0
+
+.screen
+  +full-screen
+  background: white
+  position: fixed
+  top: 100%
+  z-index: 4
+  content: ""
+  display: block
 </style>
