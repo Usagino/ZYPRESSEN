@@ -38,7 +38,7 @@ export default {
       const tl = gsap.timeline({})
       gsap.to('.hover-text__text', {
         fontWeight: 700,
-        duration: 0.4,
+        duration: 1,
         stagger: {
           grid: 'auto',
           from: elements.indexOf(e.target),
@@ -47,8 +47,8 @@ export default {
       })
       gsap.to('.hover-text__text', {
         fontWeight: 400,
-        duration: 0.4,
-        delay: 0.5,
+        duration: 0.7,
+        delay: 1,
         stagger: {
           grid: 'auto',
           from: elements.indexOf(e.target),
@@ -89,9 +89,8 @@ export default {
     text-align: center
     +sp-view
       font-size: 16px
-    &:nth-of-type(2n)
-      font-family: 'Lora', serif
-    +pc-view
-      &:hover
+
+    &:hover
+      +pc-view
         font-weight: 700
 </style>
