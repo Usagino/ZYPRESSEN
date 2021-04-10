@@ -1,8 +1,7 @@
 <template lang="pug">
   .hover-text
     .hover-text__box
-      // .hover-text__row(v-for="i of 12")
-      p.hover-text__text(v-for="n of 14*12" @click="anime") ZYPRESSEN
+      p.hover-text__text(v-for="n of 12*12" @click="anime") ZYPRESSEN
 </template>
 
 <script>
@@ -20,28 +19,25 @@ export default {
   created() {},
   methods: {
     anime(e) {
-      console.log(e)
       const elements = [].slice.call(this.$$('.hover-text__text'))
-      console.log(elements.indexOf(e.target))
-
       const tl = gsap.timeline({})
       gsap.to('.hover-text__text', {
-        opacity: 0,
+        fontWeight: 700,
         duration: 0.4,
         stagger: {
           grid: 'auto',
           from: elements.indexOf(e.target),
-          amount: 3,
+          amount: 4,
         },
       })
       gsap.to('.hover-text__text', {
-        opacity: 1,
+        fontWeight: 400,
         duration: 0.4,
         delay: 0.5,
         stagger: {
           grid: 'auto',
           from: elements.indexOf(e.target),
-          amount: 3,
+          amount: 4,
         },
       })
     },
@@ -55,7 +51,7 @@ export default {
   border: 2px solid white
   position: relative
   background: rgba(#b1c7e0, 0.3)
-  backdrop-filter: blur(10px)
+  backdrop-filter: blur(5px)
   .hover-text__box
     position: absolute
     top: 50%
@@ -63,7 +59,7 @@ export default {
     transform: translateX(-50%) translateY(-50%) rotate(20deg)
     display: grid
     grid-template-columns: repeat(12, 300px)
-    grid-template-rows: repeat(14, auto)
+    grid-template-rows: repeat(12, auto)
     gap: 32px 32px
     +sp-view
       grid-template-columns: repeat(12, 100px)
@@ -76,11 +72,11 @@ export default {
     cursor: pointer
     transition: all 0.5s ease
     text-align: center
-    transform: translateZ(1px)
     +sp-view
       font-size: 16px
     &:nth-of-type(2n)
       font-family: 'Lora', serif
-    &:hover
-      font-weight: 700
+    +pc-view
+      &:hover
+        font-weight: 700
 </style>
