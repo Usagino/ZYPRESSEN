@@ -7,6 +7,7 @@
           h2.top__title__text Diffrent From
         .top__title__wrap
           h2.top__title__text Others!!
+      scrollButton.top--works-click(text="Works")
     .screen
 </template>
 
@@ -56,7 +57,6 @@ export default {
   },
   mounted() {
     gsap.registerPlugin(ScrollTrigger, Draggable)
-    console.log(this.$store.state.works)
     window.onmousewheel = (event) => {
       gsap.to('.screen', {
         duration: 0.1,
@@ -64,6 +64,9 @@ export default {
       })
       this.$router.push('/works')
     }
+    this.$('.top--works-click').addEventListener('click', () => {
+      this.$router.push('/works')
+    })
   },
   created() {},
   methods: {},
@@ -93,6 +96,9 @@ export default {
       letter-spacing: 1.4px
   .top__title__scroll-buttton
     bottom: 0
+  & ::v-deep .scroll-button
+    // opacity: 0
+    cursor: pointer
 
 .screen
   +full-screen

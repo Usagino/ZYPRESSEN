@@ -2,8 +2,8 @@
 .scroll-button
   .scroll-button__circle
     .scroll-button__text-wrap
-      p.scroll-button__text Scroll
-      p.scroll-button__text.scroll-button__bottom Scroll
+      p.scroll-button__text {{text}}
+      p.scroll-button__text.scroll-button__bottom {{text}}
 </template>
 
 <script>
@@ -12,6 +12,12 @@
 // import { ScrollTrigger } from 'gsap/dist/ScrollTrigger.min.js'
 
 export default {
+  props: {
+    text: {
+      type: String,
+      default: 'Scroll',
+    },
+  },
   data() {
     return {}
   },
