@@ -169,26 +169,33 @@ export default {
   +sp-view
     grid-template-columns: 200px
     grid-gap: 40px
-.posts__thumbnail
-  width: 25vw
-  height: 37.5vw
-  +sp-view
-    width: 200px
-    height: 300px
-.posts__title-box
-  display: flex
-  align-items: center
-  +gap-right(16px)
-  padding-top: 16px
-.posts__title-box__bar
-  height: 1px
-  width: 32px
-  background: var(--color-white)
-  +sp-view
-    width: 20px
-.posts__title-box__text
-  font-size: 15px
-  font-weight: 300
-  +sp-view
-    font-size: 12px
+  .posts__thumbnail-box
+    width: 25vw
+    height: 37.5vw
+    background: white
+    +flex-middle
+    overflow: hidden
+  .posts__thumbnail
+    width: 100%
+    height: 100%
+    padding: 50px
+    +sp-view
+      width: 200px
+      height: 300px
+  .posts__title-box
+    display: flex
+    align-items: center
+    +gap-right(16px)
+    padding-top: 16px
+  .posts__title-box__bar
+    height: 1px
+    width: 32px
+    background: var(--color-white)
+    +sp-view
+      width: 20px
+  .posts__title-box__text
+    font-size: 15px
+    font-weight: 300
+    +sp-view
+      font-size: 12px
 </style>

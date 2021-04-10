@@ -89,7 +89,6 @@ export default {
     text-align: center
     +sp-view
       font-size: 16px
-
     &:hover
       +pc-view
         font-weight: 700
