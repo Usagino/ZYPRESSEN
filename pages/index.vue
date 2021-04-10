@@ -59,8 +59,15 @@ export default {
     console.log(this.$store.state.works)
     window.onmousewheel = (event) => {
       console.log(event.wheelDelta)
-      gsap.to('.screen', { duration: 1, y: event.wheelDelta })
-      if (event.wheelDelta < -600) {
+      gsap.to('.screen', {
+        duration: 1,
+        y: event.wheelDelta,
+        onComplete: () => {
+          gsap.to('.screen', { duration: 0.3, y: 0 })
+        },
+      })
+
+      if (event.wheelDelta < -400) {
         console.log('hi')
         this.$router.push('/works')
       }
