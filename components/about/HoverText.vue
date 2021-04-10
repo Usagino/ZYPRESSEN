@@ -15,6 +15,21 @@ export default {
   },
   mounted() {
     // gsap.registerPlugin(ScrollTrigger)
+    const elements = Array.from(this.$$('.hover-text__text'))
+    const sliceByNumber = (array, number) => {
+      const length = Math.ceil(array.length / number)
+      return new Array(length)
+        .fill()
+        .map((_, i) => array.slice(i * number, (i + 1) * number))
+    }
+    console.log(sliceByNumber(elements, 12))
+    sliceByNumber(elements, 12).forEach((item, i) => {
+      if (i % 2 === 0) {
+        item.forEach((el, i) => {
+          gsap.set(el, { x: '-50%' })
+        })
+      }
+    })
   },
   created() {},
   methods: {
@@ -27,7 +42,7 @@ export default {
         stagger: {
           grid: 'auto',
           from: elements.indexOf(e.target),
-          amount: 4,
+          amount: 6,
         },
       })
       gsap.to('.hover-text__text', {
@@ -37,7 +52,7 @@ export default {
         stagger: {
           grid: 'auto',
           from: elements.indexOf(e.target),
-          amount: 4,
+          amount: 6,
         },
       })
     },
@@ -70,7 +85,7 @@ export default {
     font-family: 'Maven Pro', sans-serif
     font-weight: 400
     cursor: pointer
-    transition: all 0.5s ease
+    transition: font-weight 0.5s ease
     text-align: center
     +sp-view
       font-size: 16px
