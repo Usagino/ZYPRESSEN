@@ -61,14 +61,14 @@ export default {
     window.onmousewheel = (event) => {
       console.log(event.wheelDelta)
       gsap.to('.screen', {
-        duration: 1,
+        duration: 2,
         y: event.wheelDelta,
         onComplete: () => {
           gsap.to('.screen', { duration: 0.3, y: 0 })
         },
       })
 
-      if (event.wheelDelta < -400) {
+      if (event.wheelDelta < -200) {
         console.log('hi')
         this.$router.push('/works')
       }
