@@ -8,6 +8,7 @@
         .top__title__wrap
           h2.top__title__text Others!!
     .screen
+      p.screen__text 👇 Push works page
 </template>
 
 <script>
@@ -110,4 +111,9 @@ export default {
   z-index: 4
   content: ""
   display: block
+  .screen__text
+    padding-top: 2vw
+    color: #ADC3DF
+    font-size: 2vw
+    text-align: center
 </style>
