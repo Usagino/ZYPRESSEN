@@ -26,7 +26,7 @@
           p.question__first__sentence ZYPRESSEN is a creative team that creates digital product designs. We don't believe in stereotypes, and each member of our team is always working with a cutting-edge philosophy. In order to create something new and different, we observe and absorb what our predecessors have built and find new values that have never been seen before.<br>We call this "Different from Others".
 
       .question__picture-first
-        aboutHoverText
+        // aboutHoverText
 
       .question__first
         .question__first__title-box
@@ -36,7 +36,7 @@
           p.question__first__sentence ZYPRESSEN is a creative team that creates digital product designs. We don't believe in stereotypes, and each member of our team is always working with a cutting-edge philosophy. In order to create something new and different, we observe and absorb what our predecessors have built and find new values that have never been seen before.<br>We call this "Different from Others".
 
       .question__picture-first
-        aboutHoverText
+        // aboutHoverText
 
     baseFooter(:scrollBar="bodyScrollBar")
 </template>
@@ -178,6 +178,8 @@ export default {
     position: relative
     overflow: hidden
     height: 70vh
+    +sp-view
+      height: 36vh
 
 .question__first--right
   margin-left: auto
