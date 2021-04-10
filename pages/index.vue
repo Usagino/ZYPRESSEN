@@ -8,7 +8,6 @@
         .top__title__wrap
           h2.top__title__text Others!!
     .screen
-      p.screen__text 👇 Push works page
 </template>
 
 <script>
@@ -59,18 +58,11 @@ export default {
     gsap.registerPlugin(ScrollTrigger, Draggable)
     console.log(this.$store.state.works)
     window.onmousewheel = (event) => {
-      console.log(event.wheelDelta)
       gsap.to('.screen', {
-        duration: 2,
+        duration: 0.1,
         y: event.wheelDelta,
-        onComplete: () => {
-          gsap.to('.screen', { duration: 0.3, y: 0 })
-        },
       })
-
-      if (event.wheelDelta < -150) {
-        this.$router.push('/works')
-      }
+      this.$router.push('/works')
     }
   },
   created() {},
@@ -110,9 +102,4 @@ export default {
   z-index: 1
   content: ""
   display: block
-  .screen__text
-    padding-top: 2vw
-    color: #ADC3DF
-    font-size: 2vw
-    text-align: center
 </style>
