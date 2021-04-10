@@ -178,7 +178,7 @@ export default {
   .posts__thumbnail
     width: 100%
     height: 100%
-    padding: 50px
+    transform: scale(0.7)
     +sp-view
       width: 200px
       height: 300px
