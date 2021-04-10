@@ -2,7 +2,7 @@
   .hover-text
     .hover-text__box
       .hover-text__row(v-for="i of 12")
-        p.hover-text__text(v-for="n of i % 2 === 0 ? 9 : 8") ZYPRESSEN
+        p.hover-text__text(v-for="n of i % 2 === 0 ? 9 : 8" @click="anime") ZYPRESSEN
 </template>
 
 <script>
@@ -18,7 +18,23 @@ export default {
     // gsap.registerPlugin(ScrollTrigger)
   },
   created() {},
-  methods: {},
+  methods: {
+    anime() {
+      const tl = gsap.timeline({ repeat: -1 })
+      this.$$('.hover-text__text').forEach((el, i) => {
+        tl.to(el, {
+          fontWeight: 700,
+          duration: 0.3,
+        })
+      })
+      this.$$('.hover-text__text').forEach((el, i) => {
+        tl.to(el, {
+          fontWeight: 400,
+          duration: 0.3,
+        })
+      })
+    },
+  },
 }
 </script>
 
@@ -49,11 +65,11 @@ export default {
     font-family: 'Maven Pro', sans-serif
     font-weight: 400
     cursor: pointer
-    transition: all 0.5s ease
+    //transition: all 0.5s ease
     +sp-view
       font-size: 16px
     &:nth-child(odd)
       font-family: 'Lora', serif
-    &:hover
-      font-weight: 700
+    // &:hover
+    //   font-weight: 700
 </style>
