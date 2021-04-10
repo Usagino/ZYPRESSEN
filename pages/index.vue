@@ -68,8 +68,7 @@ export default {
         },
       })
 
-      if (event.wheelDelta < -200) {
-        console.log('hi')
+      if (event.wheelDelta < -150) {
         this.$router.push('/works')
       }
     }
@@ -108,7 +107,7 @@ export default {
   background: white
   position: fixed
   top: 100%
-  z-index: 4
+  z-index: 1
   content: ""
   display: block
   .screen__text
