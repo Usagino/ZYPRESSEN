@@ -14,8 +14,9 @@
           h2.question__first__title Who We Are?
         .question__first__sentence-box
           p.question__first__sentence ZYPRESSEN is a creative team that creates digital product designs. We don't believe in stereotypes, and each member of our team is always working with a cutting-edge philosophy. In order to create something new and different, we observe and absorb what our predecessors have built and find new values that have never been seen before.<br>We call this "Different from Others".
+
       .question__picture-first
-        img.question__picture-first__image(src="/about_1.png")
+        aboutHoverText
 
       .question__first.question__first--right
         .question__first__title-box
@@ -25,10 +26,18 @@
           p.question__first__sentence ZYPRESSEN is a creative team that creates digital product designs. We don't believe in stereotypes, and each member of our team is always working with a cutting-edge philosophy. In order to create something new and different, we observe and absorb what our predecessors have built and find new values that have never been seen before.<br>We call this "Different from Others".
 
       .question__picture-first
-        img.question__picture-first__image(src="/dummy/about_2.jpg")
-    n-link(to="/contact").marquee-link
-      .marquee-link__wrap
-        span(v-for="item of 8").marquee-link__wrap__text Contact
+        aboutHoverText
+
+      .question__first
+        .question__first__title-box
+          p.question__first__degree 03.Contact
+          h2.question__first__title Get in Touch!
+        .question__first__sentence-box
+          p.question__first__sentence ZYPRESSEN is a creative team that creates digital product designs. We don't believe in stereotypes, and each member of our team is always working with a cutting-edge philosophy. In order to create something new and different, we observe and absorb what our predecessors have built and find new values that have never been seen before.<br>We call this "Different from Others".
+
+      .question__picture-first
+        aboutHoverText
+
     baseFooter(:scrollBar="bodyScrollBar")
 </template>
 
@@ -166,17 +175,9 @@ export default {
 
   .question__picture-first
     width: 100%
-    padding-bottom: 61.7%
     position: relative
     overflow: hidden
-
-  .question__picture-first__image
-    position: absolute
-    top: 0
-    left: 0
-    +full-size
-    transform: scale(1.1)
-    height: auto
+    height: 70vh
 
 .question__first--right
   margin-left: auto
