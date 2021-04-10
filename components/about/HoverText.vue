@@ -72,7 +72,7 @@ export default {
     font-size: 50px
     line-height: 100%
     font-family: 'Maven Pro', sans-serif
-    font-weight: 700
+    font-weight: 400
     cursor: pointer
     transition: all 0.5s ease
     text-align: center
