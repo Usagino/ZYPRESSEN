@@ -1,5 +1,5 @@
 <template lang="pug">
-  .container(ref="topContainer")
+  .container.top-container(ref="topContainer")
     backMovie(name="top")
     .top
       .top__title
@@ -58,18 +58,16 @@ export default {
   mounted() {
     gsap.registerPlugin(ScrollTrigger, Draggable)
 
-    if (this.$refs.topContainer) {
-      window.onmousewheel = (event) => {
-        gsap.to('.screen', {
-          duration: 0.1,
-          y: event.wheelDelta,
-        })
-        this.$router.push('/works')
-      }
-      this.$('.top--works-click').addEventListener('click', () => {
-        this.$router.push('/works')
+    this.$('.top-container').onmousewheel = (event) => {
+      gsap.to('.screen', {
+        duration: 0.1,
+        y: event.wheelDelta,
       })
+      this.$router.push('/works')
     }
+    this.$('.top--works-click').addEventListener('click', () => {
+      this.$router.push('/works')
+    })
   },
   created() {},
   methods: {},
