@@ -28,7 +28,11 @@
       .question__picture-first
         // aboutHoverText
 
-      .mail-address(@mouseover="mailAnime(true)" @mouseleave="mailAnime(false)")
+      a.mail-address(
+        @mouseover="mailAnime(true)"
+        @mouseleave="mailAnime(false)"
+        href="mailto:info@zypressen.org"
+        target="_blank")
         p.mail-address__text.mail-address__text--parent
           span.mail-address__minion(v-for="t in 'info@zypressen.org'.split('')") {{t}}
         p.mail-address__text.mail-address__text--child
@@ -84,16 +88,9 @@ export default {
   mounted() {
     gsap.registerPlugin(ScrollTrigger)
     this.scrollCustom()
-    console.log(this.spaceReplace('Please contact us'))
   },
   created() {},
   methods: {
-    spaceReplace(str) {
-      const strBefore = str.replace(/\s/g, '_')
-      const strArray = strBefore.split('')
-      const textArray = strArray.map((t) => (t === '_' ? '&nbsp;' : t))
-      return textArray
-    },
     scrollCustom() {
       Scrollbar.destroyAll()
       this.bodyScrollBar = null

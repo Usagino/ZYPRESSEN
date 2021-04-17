@@ -23,15 +23,10 @@
             a(href="/" target="_blank").display__social__item Instagram
           li.display__social__item-wrap
             a(href="/" target="_blank").display__social__item Info@zypressen.org
-        .display__lang__wrap
-          button.display__lang__text.display__lang--en En
-          button.display__lang__text.display__lang--ja Ja
 </template>
 
 <script>
-// import Scrollbar, { ScrollbarPlugin } from 'smooth-scrollbar'
 import gsap from 'gsap' // eslint-disable-line
-// import { ScrollTrigger } from 'gsap/dist/ScrollTrigger.min.js'
 
 export default {
   data() {
@@ -39,9 +34,7 @@ export default {
       menuToggle: true,
     }
   },
-  mounted() {
-    // gsap.registerPlugin(ScrollTrigger)
-  },
+  mounted() {},
   created() {},
   methods: {
     open() {
@@ -57,7 +50,8 @@ export default {
         '.display',
         {
           duration: 0.6,
-          opacity: 1,
+          ease: 'expo.in',
+          clipPath: 'inset(0% 0% 0% 0%)',
         },
         'open'
       )
@@ -98,7 +92,11 @@ export default {
         '.display',
         {
           duration: 0.6,
-          opacity: 0,
+          ease: 'expo.in',
+          clipPath: 'inset(0% 0% 100% 0%)',
+          onComplete: () => {
+            gsap.set('.display', { clipPath: 'inset(100% 0% 0% 0%)' })
+          },
         },
         'close'
       )
@@ -169,6 +167,7 @@ export default {
     bottom: 6px
 
 .display
+  clip-path: inset(100% 0 0% 0)
   position: fixed
   top: 0
   left: 0
@@ -176,7 +175,6 @@ export default {
   +full-screen
   z-index: 10
   display: none
-  opacity: 0
   *
     color: #888888
   .display__logo

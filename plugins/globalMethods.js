@@ -25,6 +25,12 @@ Vue.mixin({
         this.playVideo()
       }
     },
+    spaceReplace(str) {
+      const strBefore = str.replace(/\s/g, '_')
+      const strArray = strBefore.split('')
+      const textArray = strArray.map((t) => (t === '_' ? '&nbsp;' : t))
+      return textArray
+    },
     resetVideo(el) {
       const $ = (element) => {
         return el.querySelectorAll(element)
