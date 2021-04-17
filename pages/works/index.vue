@@ -16,10 +16,10 @@
           )
           .posts__thumbnail-box
             img(:src="item.thumbnailVertical").posts__thumbnail
-            .posts__title-box
-              p.posts__title-box__text {{item.title}}
-              span.posts__title-box__bar
-              time.posts__title-box__text {{item.media}}
+          .posts__title-box
+            p.posts__title-box__text {{item.title}}
+            span.posts__title-box__bar
+            time.posts__title-box__text {{item.media}}
     baseFooter(:scrollBar="bodyScrollBar")
 </template>
 
@@ -75,21 +75,16 @@ export default {
   created() {},
   methods: {
     enterAnime() {
-      gsap.set('.posts__item', {
-        clipPath: 'inset(0 0% 0 100%)',
+      gsap.set('.posts__thumbnail', {
+        y: 50,
+        opacity: 0,
       })
-      gsap.utils.toArray('.posts__item').forEach((el, i) => {
-        const index = i + 1
-        const duration = { time: 0.5 }
-        if (index % 3 === 0 && this.$ua.isFromSmartphone) {
-          duration.time = 0.7
-        } else if (index % 2 === 0 && this.$ua.isFromSmartphone) {
-          duration.time = 0.5
-        }
-        console.log(duration.time)
+      gsap.utils.toArray('.posts__thumbnail').forEach((el, i) => {
         gsap.to(el, {
-          duration: duration.time,
-          clipPath: 'inset(0 0% 0 0%)',
+          duration: 0.5,
+          y: 0,
+          opacity: 1,
+          clearProps: 'clipPath',
           scrollTrigger: {
             trigger: el,
             start: 'top center',
@@ -150,7 +145,8 @@ export default {
   width: fit-content
   margin: auto
   +sp-view
-    padding: 80px 0 160px
+    width: auto
+    padding: 80px 20px 160px
 .all-works__title
   font-size: 40px
   font-weight: 300
@@ -167,8 +163,16 @@ export default {
   grid-gap: 80px 36px
   flex-wrap: wrap
   +sp-view
-    grid-template-columns: 200px
     grid-gap: 40px
+    display: flex
+    flex-direction: column
+  .posts__item
+    position: relative
+    +pc-view
+      &:hover
+        & .posts__thumbnail
+          transform: scale(0.72)
+          box-shadow: 0px 20px 30px 0px rgb(167 167 167 / 20%)
   .posts__thumbnail-box
     width: 25vw
     height: 37.5vw
@@ -176,31 +180,44 @@ export default {
     +flex-middle
     overflow: hidden
     position: relative
+    +sp-view
+      width: 100%
+      height: 110vw
   .posts__thumbnail
     width: 100%
     height: 100%
     transform: scale(0.7)
     box-shadow: 0px 20px 30px -20px rgba(167, 167, 167, 0.6)
+    transition: all 0.5s ease 0s
     +sp-view
       width: 200px
       height: 300px
+      transform: scale(1)
   .posts__title-box
     position: absolute
-    bottom: 2vw
+    bottom: -40px
+    left: 0
+    right: 0
+    margin: auto
     display: flex
     align-items: center
     +gap-right(16px)
     padding-top: 16px
+    +sp-view
+      bottom: -28px
+      padding-top: 0px
+      width: 100%
+      +flex-middle
   .posts__title-box__bar
     height: 1px
     width: 20px
-    background: #888888
+    background: #ffffff
     +sp-view
       width: 20px
   .posts__title-box__text
     font-size: 15px
     font-weight: 300
-    color: #888888
+    color: #ffffff
     +sp-view
       font-size: 12px
 </style>

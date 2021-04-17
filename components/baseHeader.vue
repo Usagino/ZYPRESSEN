@@ -3,7 +3,7 @@
     .base-header__right
       n-link(to="/").base-header__logo-wrap
         img.base-header__logo(src="/logo.svg")
-      .base-header__lang
+      //.base-header__lang
         button.base-header__lang--en En
         button.base-header__lang--ja Ja
     .base-header__left

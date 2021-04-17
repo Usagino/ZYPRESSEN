@@ -28,15 +28,11 @@
       .question__picture-first
         // aboutHoverText
 
-      .question__first
-        .question__first__title-box
-          p.question__first__degree 03.Contact
-          h2.question__first__title Get in Touch!
-        .question__first__sentence-box
-          p.question__first__sentence ZYPRESSEN is a creative team that creates digital product designs. We don't believe in stereotypes, and each member of our team is always working with a cutting-edge philosophy. In order to create something new and different, we observe and absorb what our predecessors have built and find new values that have never been seen before.<br>We call this "Different from Others".
-
-      .question__picture-first
-        // aboutHoverText
+      .mail-address(@mouseover="mailAnime(true)" @mouseleave="mailAnime(false)")
+        p.mail-address__text.mail-address__text--parent
+          span.mail-address__minion(v-for="t in 'info@zypressen.org'.split('')") {{t}}
+        p.mail-address__text.mail-address__text--child
+          span.mail-address__minion(v-for="t in spaceReplace('Please contact us')" v-html="t")
 
     baseFooter(:scrollBar="bodyScrollBar")
 </template>
@@ -82,15 +78,22 @@ export default {
   data() {
     return {
       bodyScrollBar: null,
+      mailAnimeToggle: true,
     }
   },
   mounted() {
-    // this.$('html, body').classList.remove('index')
     gsap.registerPlugin(ScrollTrigger)
     this.scrollCustom()
+    console.log(this.spaceReplace('Please contact us'))
   },
   created() {},
   methods: {
+    spaceReplace(str) {
+      const strBefore = str.replace(/\s/g, '_')
+      const strArray = strBefore.split('')
+      const textArray = strArray.map((t) => (t === '_' ? '&nbsp;' : t))
+      return textArray
+    },
     scrollCustom() {
       Scrollbar.destroyAll()
       this.bodyScrollBar = null
@@ -121,14 +124,53 @@ export default {
         ScrollTrigger.refresh()
       })
     },
+    mailAnime(over) {
+      if (this.mailAnimeToggle) {
+        this.mailAnimeToggle = false
+        window.setTimeout(() => {
+          this.mailAnimeToggle = true
+        }, 1000)
+        if (over) {
+          gsap.to('.mail-address__text--parent .mail-address__minion', {
+            x: '-20%',
+            opacity: 0,
+            stagger: {
+              amount: 1,
+            },
+          })
+          gsap.to('.mail-address__text--child .mail-address__minion', {
+            x: '0%',
+            delay: 0.2,
+            opacity: 1,
+            stagger: {
+              amount: 1,
+            },
+          })
+        } else {
+          gsap.to('.mail-address__text--child .mail-address__minion', {
+            x: '-20%',
+            opacity: 0,
+            stagger: {
+              amount: 1,
+            },
+          })
+          gsap.to('.mail-address__text--parent .mail-address__minion', {
+            x: '0%',
+            delay: 0.2,
+            opacity: 1,
+            stagger: {
+              amount: 1,
+            },
+          })
+        }
+      }
+    },
   },
 }
 </script>
 
 <style lang="sass" scoped>
 // .container
-
-
 
 .question
   +default-width(140px)
@@ -178,6 +220,7 @@ export default {
     position: relative
     overflow: hidden
     height: 70vh
+    border: 1px solid white
     +sp-view
       height: 36vh
 
@@ -187,4 +230,23 @@ export default {
   margin-top: 12vw
   +sp-view
     padding-top: 40px
+
+.mail-address
+  margin: auto !important
+  display: block
+  width: fit-content
+  position: relative
+  .mail-address__text
+    cursor: pointer
+    display: inline-block
+    &--child
+      width: fit-content
+      +absolute-middle
+      .mail-address__minion
+        transform: translateX(20%)
+        opacity: 0
+  .mail-address__minion
+    font-size: 6vw
+    font-weight: 300
+    display: inline-block
 </style>
