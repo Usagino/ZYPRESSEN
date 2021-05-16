@@ -223,7 +223,7 @@ export default {
     .work__text
       padding-top: 32px
   .work__info__created
-    margin-top: 40px
+    margin-top: 24px
     +gap-bottom(8px)
     .work__text
       padding-top: 0px
@@ -232,7 +232,7 @@ export default {
   .work__title
     *
       display: block
-      font-size: 144px
+      font-size: 88px
       font-weight: 300
       line-height: 100%
       letter-spacing: 1.4px
@@ -257,11 +257,12 @@ export default {
   .work__thumbnail-wrap
     width: 100%
     +flex-middle
-    margin-top: 48px
+    margin-top: 74px
     .work__thumbnail
       width: 100%
+      height: auto
     +sp-view
-      margin-top: 48px
+      margin-top: 40px
   .work__thumbnail
     width: 500px
     height: 750px
@@ -270,7 +271,7 @@ export default {
       height: 300px
   .work__description
     width: 500px
-    margin: 160px 0
+    margin: 112px 0
     +sp-view
       width: 100%
       margin: 56px 0
@@ -284,19 +285,24 @@ export default {
   .work__detail
     display: flex
     +gap-right(56px)
-    margin-top: 88px
+    margin-top: 32px
   // .work__detail__title
-
+  .work__detail__title
+    padding-top: 8px
+    +sp-view
+      font-size: 12px
   .work__detail__text
     opacity: 0.5
     padding-top: 8px
+    +sp-view
+      font-size: 12px
   .work__gallery
     width: 100%
-    +gap-bottom(80px)
+    +gap-bottom(104px)
     +sp-view
       +gap-bottom(56px)
   .work__gallery__image
-    width: 1200px
+    width: 100%
     height: auto
     +sp-view
       width: 100%
@@ -305,21 +311,21 @@ export default {
 .next-work
   position: relative
   z-index: 2
-  margin-bottom: 240px
+  margin-bottom: 12vw
   height: 144px
   width: 100vw
   overflow: hidden
   display: flex
   align-items: center
   +sp-view
-    margin-bottom: 160px
+    margin-bottom: 140px
     height: 44px
 .next-work__wrap
   display: flex
   width: fit-content
   animation: marquee 10s linear 0s normal infinite
 .next-work__text
-  font-size: 144px
+  font-size: 6vw
   font-weight: 300
   padding-right: 160px
   line-height: 100%
