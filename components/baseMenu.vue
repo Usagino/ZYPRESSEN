@@ -14,8 +14,6 @@
             n-link.display__menu__item(to="/works" @click.native="close()") Works
           li.display__menu__item-wrap
             n-link.display__menu__item(to="/about" @click.native="close()") About
-          li.display__menu__item-wrap
-            n-link.display__menu__item(to="/contact" @click.native="close()") Contact
         ul.display__social__list
           li.display__social__item-wrap
             a(href="/" target="_blank").display__social__item Twitter
@@ -195,7 +193,7 @@ export default {
   .display__social
     .display__social__list
       position: absolute
-      bottom: 132px
+      bottom: 160px
       width: fit-content
       +gap-bottom(8px)
     .display__social__item
