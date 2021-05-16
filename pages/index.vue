@@ -4,7 +4,7 @@
     .top
       .top__title
         .top__title__wrap
-          h2.top__title__text Diffrent From
+          h2.top__title__text Different From
         .top__title__wrap
           h2.top__title__text Others!!
       scrollButton.top--works-click(text="Works")
