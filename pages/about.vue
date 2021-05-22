@@ -22,7 +22,7 @@
       .question__first.question__first--right
         .question__first__title-box
           p.question__first__degree 02. Philosophy
-          h2.question__first__title Diffrent From <br>Others!!
+          h2.question__first__title Different From <br>Others!!
         .question__first__sentence-box
           p.question__first__sentence ZYPRESSEN is a creative team that creates digital product designs. We don't believe in stereotypes, and each member of our team is always working with a cutting-edge philosophy. In order to create something new and different, we observe and absorb what our predecessors have built and find new values that have never been seen before.<br>We call this "Different from Others".
 
@@ -177,14 +177,14 @@ export default {
   // padding-top: 240px
   margin: 12vw auto
   +sp-view
-    +gap-bottom(120px)
-    padding: 80px 0 160px
+    +gap-bottom(80px)
+    padding: 80px 0 120px
     +default-width(140px)
   .question__first
     width: fit-content
     margin-right: auto
     +sp-view
-      margin: 0 0 40px
+      margin: 0 0 56px
   .question__first__degree
     margin-bottom: 24px
     +sp-view
@@ -218,7 +218,7 @@ export default {
     width: 100%
     position: relative
     overflow: hidden
-    height: 70vh
+    height: auto
     // border: 1px solid white
     +sp-view
       height: 36vh
@@ -232,14 +232,13 @@ export default {
   margin-left: auto
   margin-right: 0 !important
   margin-top: 12vw
-  +sp-view
-    padding-top: 40px
 
 .mail-address
-  margin: auto !important
+  margin: 12vw auto  !important
   display: block
   width: fit-content
   position: relative
+
   .mail-address__text
     cursor: pointer
     display: inline-block
@@ -253,4 +252,6 @@ export default {
     font-size: 6vw
     font-weight: 300
     display: inline-block
+    +sp-view
+      font-size: 8vw
 </style>

@@ -163,9 +163,9 @@ export default {
   grid-gap: 80px 36px
   flex-wrap: wrap
   +sp-view
-    grid-gap: 40px
     display: flex
     flex-direction: column
+    align-items: center
   .posts__item
     position: relative
     +pc-view
@@ -181,8 +181,8 @@ export default {
     overflow: hidden
     position: relative
     +sp-view
-      width: 100%
-      height: 110vw
+      width: 280px
+      height: 420px
   .posts__thumbnail
     width: 100%
     height: 100%

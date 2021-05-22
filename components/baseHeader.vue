@@ -50,7 +50,7 @@ export default {
     display: flex
     align-items: center
   .base-header__left
-    +sp-view
+    +pc-sm-view
       display: none
   .base-header__logo-wrap
     line-height: 0px
