@@ -1,5 +1,6 @@
 import metaData from './assets/js/metaData.js' // eslint-disable-line
-const meta = metaData('https://zypressen.vercel.app/').data
+const host = 'https://zypressen.org/'
+const meta = metaData(host).data
 import gsap from 'gsap' // eslint-disable-line
 
 require('dotenv').config()
@@ -72,7 +73,7 @@ export default {
   },
   sitemap: {
     path: '/sitemap.xml',
-    // hostname: 'https://example.com',
+    hostname: host,
   },
   generate: {
     crawler: true,
