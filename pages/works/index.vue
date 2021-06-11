@@ -1,6 +1,6 @@
 <template lang="pug">
   .container(ref="worksContainer")
-    backMovie(name="about")
+    backMovie(name="works")
     .container__back-blur.offset-pos
     .first
       ScrollButton
