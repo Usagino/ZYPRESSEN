@@ -5,13 +5,6 @@
     baseMenu
     nuxt
     .transition-screen
-    .movie-cash
-      video(
-        v-for="item in movieArray"
-        :src="`/movie/${item}.mp4`"
-        preload="metadata"
-        muted
-        playsinline)
 </template>
 
 <script>
@@ -36,16 +29,18 @@ export default {
   created() {
     if (process.browser) {
       this.$('html, body').classList.add('index')
+      this.callApi()
     }
   },
   mounted() {},
-  methods: {},
+  methods: {
+    async callApi() {
+      await this.movieArray.forEach((media, i) => {
+        this.$axios.get(`https://zypressen.org/movie/${media}.mp4`)
+      })
+    },
+  },
 }
 </script>
 
-<style lang="sass">
-.movie-cash
-  position: fixed
-  z-index: -1
-  opacity: 0
-</style>
+<style lang="sass"></style>
