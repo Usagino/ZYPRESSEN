@@ -18,7 +18,7 @@ export default {
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
-  plugins: ['@/plugins/globalMethods.js'],
+  plugins: ['@/plugins/globalMethods.js', '@/plugins/axios'],
   components: true,
 
   // css: ['~/assets/stylesheet/style.sass'],

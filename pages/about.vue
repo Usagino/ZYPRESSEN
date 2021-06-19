@@ -75,7 +75,6 @@ export default {
     })
 
     gsap.utils.toArray('.question__first').forEach((el, i) => {
-      console.log(el)
       const tl = gsap.timeline()
       tl.to(
         this.$$('.question__move-text', el),
