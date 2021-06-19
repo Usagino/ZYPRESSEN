@@ -5,7 +5,8 @@
     .first
       ScrollButton
       .first__title-box
-        p.first__title-box__text 01
+        p.first__title-box__text
+          span.first__title-box__text-item 01
         h2.first__title-box__title Works
     .all-works
       .posts
@@ -28,6 +29,7 @@ import Scrollbar, { ScrollbarPlugin } from 'smooth-scrollbar'
 import gsap from 'gsap' // eslint-disable-line
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger.min.js'
 import transitionAnime from '@/assets/js/transition.js'
+import CustomEase from '@/assets/js/CustomEase.min.js'
 
 export default {
   transition: transitionAnime(),
@@ -38,9 +40,17 @@ export default {
   },
   mounted() {
     gsap.registerPlugin(ScrollTrigger)
+    gsap.registerPlugin(CustomEase)
+
     this.scrollCustom()
     this.enterAnime()
     this.scrollBlur()
+    gsap.to('.first__title-box__title, .first__title-box__text-item', {
+      duration: 1,
+      delay: 2,
+      y: '0%',
+      ease: CustomEase.create('custom', 'M0,0 C0,1.304 0.502,1 1,1 '),
+    })
   },
   created() {},
   methods: {
@@ -67,8 +77,9 @@ export default {
       this.bodyScrollBar = null
       const el = this.$refs.worksContainer
       this.bodyScrollBar = Scrollbar.init(el, {
-        damping: this.$ua.isFromSmartphone() ? 0.1 : 0.9,
+        damping: 0.1,
         delegateTo: document,
+        thumbMinSize: 20,
       })
       this.bodyScrollBar.addListener(({ offset }) => {
         if (el.querySelector('.offset-pos')) {

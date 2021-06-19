@@ -11,6 +11,15 @@ html,body
 img
   object-fit: cover
 
+span
+  font-size: inherit
+  font-weight: inherit
+  font-weight: inherit
+  line-height: inherit
+  letter-spacing: inherit
+  display: inline-block
+
+
 ::selection
   background: #ffffff
   color: #92A5C4
@@ -92,6 +101,9 @@ img
     from
       transform: translateX(-50%)
 
+.first__title-box__title, .first__title-box__text-item
+  transform: translateY(110%)
+
 .first
   +default-width(140px)
   height: var(--wh, 100vh)
@@ -103,13 +115,18 @@ img
   .first__title-box
     display: flex
     align-items: flex-start
+    overflow: hidden
+    padding: 2px 0
   .first__title-box__text
     font-size: 18px
     padding-right: 20px
+    overflow: hidden
     +sp-view
       padding-right: 8px
       font-size: 10px
       letter-spacing: 0.4px
+  .first__title-box__text-item
+    display: block
 
   .first__title-box__title
     font-size: 6vw

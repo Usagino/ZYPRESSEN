@@ -53,8 +53,8 @@ export default {
       this.bodyScrollBar = null
       const el = this.$refs.contactContainer
       this.bodyScrollBar = Scrollbar.init(el, {
-        damping: this.$ua.isFromSmartphone() ? 0.1 : 0.9,
-        delegateTo: document,
+        damping: 0.1,
+        delegateTo: document,thumbMinSize: 20,
       })
       this.bodyScrollBar.addListener(({ offset }) => {
         if (el.querySelector('.offset-pos')) {
