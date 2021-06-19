@@ -59,7 +59,7 @@ export default {
   font-size: 12px
   letter-spacing: 0.6px
   color: #888888
-  animation: scroll-text 1s ease 1s normal infinite
+  animation: scroll-text 4s ease 0s normal infinite
   +sp-view
     font-size: 10px
 .scroll-button__bottom
@@ -78,6 +78,8 @@ export default {
 @keyframes scroll-text
   0%
     transform: translateY(0px)
+  25%
+    transform: translateY(-16px)
   100%
     transform: translateY(-16px)
 </style>
