@@ -1,7 +1,6 @@
 import metaData from './assets/js/metaData.js' // eslint-disable-line
 const host = 'https://zypressen.org/'
 const meta = metaData(host).data
-import gsap from 'gsap' // eslint-disable-line
 
 require('dotenv').config()
 export default {
@@ -19,24 +18,16 @@ export default {
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
-  plugins: [
-    '@/plugins/globalMethods.js',
-    // { src: '@/plugins/dat-gui.js', mode: 'client' },
-    // { src: '@/plugins/ga.js', mode: 'client' },
-    { src: '@/plugins/draggabilly.js', mode: 'client' },
-  ],
+  plugins: ['@/plugins/globalMethods.js'],
   components: true,
-  css: ['~/assets/stylesheet/style.sass'],
+
+  // css: ['~/assets/stylesheet/style.sass'],
   styleResources: {
     sass: ['~/assets/stylesheet/style.sass'],
   },
-  buildModules: [
-    // '@nuxtjs/style-resources',
-    // '@nuxtjs/google-analytics'
-  ],
+  buildModules: ['@nuxtjs/style-resources'],
   modules: [
     '@nuxtjs/axios',
-    '@nuxtjs/style-resources',
     '@nuxtjs/pwa',
     '@nuxtjs/dayjs',
     'nuxt-user-agent',
@@ -78,8 +69,5 @@ export default {
   generate: {
     crawler: true,
   },
-  build: {
-    // transpile: ['gsap'],
-  },
-  transition: 'hogehogehoge',
+  build: {},
 }

@@ -32,36 +32,10 @@
 import Scrollbar, { ScrollbarPlugin } from 'smooth-scrollbar'
 import gsap from 'gsap' // eslint-disable-line
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger.min.js'
+import transitionAnime from '@/assets/js/transition.js'
 
 export default {
-  transition: {
-    mode: 'out-in',
-    css: false,
-    enter(el, done) {
-      // done()
-      const tl = gsap.timeline({
-        onComplete: () => {
-          done()
-        },
-      })
-      tl.set('.transition-screen', { transformOrigin: 'top center' })
-      tl.to('.transition-screen', {
-        duration: 0.7,
-        ease: 'expo.out',
-        scaleY: 0,
-      })
-    },
-    leave(el, done) {
-      // done()
-      const tl = gsap.timeline({
-        onComplete: () => {
-          done()
-        },
-      })
-      tl.set('.transition-screen', { transformOrigin: 'bottom center' })
-      tl.to('.transition-screen', { duration: 0.7, ease: 'expo.out', scaleY: 1 })
-    },
-  },
+  transition: transitionAnime(),
   data() {
     return {
       bodyScrollBar: null,
@@ -76,7 +50,7 @@ export default {
   methods: {
     scrollCustom() {
       Scrollbar.destroyAll()
-this.bodyScrollBar = null
+      this.bodyScrollBar = null
       const el = this.$refs.contactContainer
       this.bodyScrollBar = Scrollbar.init(el, {
         damping: this.$ua.isFromSmartphone() ? 0.1 : 0.9,
