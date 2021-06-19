@@ -1,5 +1,5 @@
 <template lang="pug">
-  .container.top-container(ref="topContainer")
+  .container.top-container
     backMovie(name="top")
     .top
       .top__title
@@ -7,7 +7,7 @@
           h2.top__title__text Different From
         .top__title__wrap
           h2.top__title__text Others!!
-      scrollButton.top--works-click(text="Works")
+      scrollButton.top--works-click(text="Works" @click.native="pushWorks()")
     .screen
 </template>
 
@@ -21,9 +21,7 @@ import transitionAnime from '@/assets/js/transition.js'
 export default {
   transition: transitionAnime(),
   data() {
-    return {
-      bodyScrollBar: null,
-    }
+    return {}
   },
   mounted() {
     gsap.registerPlugin(ScrollTrigger, Draggable)
@@ -35,12 +33,13 @@ export default {
       })
       this.$router.push('/works')
     }
-    this.$('.top--works-click').addEventListener('click', () => {
-      this.$router.push('/works')
-    })
   },
   created() {},
-  methods: {},
+  methods: {
+    pushWorks() {
+      this.$router.push('/works')
+    },
+  },
 }
 </script>
 

@@ -6,11 +6,7 @@ export default function transitionAnime() {
     mode: 'out-in',
     css: false,
     enter(el, done) {
-      const tl = gsap.timeline({
-        onComplete: () => {
-          done()
-        },
-      })
+      const tl = gsap.timeline()
       tl.set('.transition-screen', { transformOrigin: 'top center' })
       tl.to('.transition-screen', {
         duration: 0.5,
@@ -20,14 +16,13 @@ export default function transitionAnime() {
         ),
         scaleY: 0,
       })
+      tl.call(() => {
+        done()
+      })
     },
     leave(el, done) {
       // done()
-      const tl = gsap.timeline({
-        onComplete: () => {
-          done()
-        },
-      })
+      const tl = gsap.timeline()
       tl.set('.transition-screen', { transformOrigin: 'bottom center' })
       tl.to('.transition-screen', {
         duration: 0.5,
@@ -36,6 +31,9 @@ export default function transitionAnime() {
           'M0,0 C0.6,0 0.604,1 0.9,1 0.958,1 0.818,1.001 1,1 '
         ),
         scaleY: 1,
+      })
+      tl.call(() => {
+        done()
       })
     },
   }

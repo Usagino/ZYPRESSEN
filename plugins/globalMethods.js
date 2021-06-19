@@ -1,4 +1,7 @@
 import Vue from 'vue'
+import Scrollbar, { ScrollbarPlugin } from 'smooth-scrollbar'
+import gsap from 'gsap' // eslint-disable-line
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger.min.js'
 
 Vue.mixin({
   data() {
@@ -57,6 +60,36 @@ Vue.mixin({
           }
         })
       }
+    },
+    scrollCustom() {
+      Scrollbar.destroyAll()
+      const el = this.$('.scroll-paper')
+      const bodyScrollBar = Scrollbar.init(el, {
+        damping: 0.1,
+        delegateTo: document,
+        thumbMinSize: 20,
+      })
+      bodyScrollBar.addListener(({ offset }) => {
+        if (this.$('.offset-pos')) {
+          gsap.set('.offset-pos', {
+            x: offset.x,
+            y: offset.y,
+          })
+        }
+      })
+      bodyScrollBar.setPosition(0, 0)
+      ScrollTrigger.scrollerProxy(el, {
+        scrollTop(value) {
+          if (arguments.length) {
+            bodyScrollBar.scrollTop = value
+          }
+          return bodyScrollBar.scrollTop
+        },
+      })
+      bodyScrollBar.addListener(() => {
+        bodyScrollBar.setPosition(0)
+        ScrollTrigger.refresh()
+      })
     },
   },
 })

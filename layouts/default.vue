@@ -23,6 +23,7 @@ export default {
         'loop-top',
         'loop-works',
       ],
+      movieArrayLength: 0,
     }
   },
 
@@ -36,7 +37,14 @@ export default {
   methods: {
     async callApi() {
       await this.movieArray.forEach((media, i) => {
-        this.$axios.get(`https://zypressen.org/movie/${media}.mp4`)
+        this.$axios
+          .get(`https://zypressen.org/movie/${media}.mp4`)
+          .then((res) => {
+            // console.log(res)
+          })
+          .catch((error) => {
+            console.warn(error)
+          })
       })
     },
   },

@@ -1,5 +1,5 @@
 <template lang="pug">
-  .container(ref="worksContainer")
+  .container.scroll-paper
     backMovie(name="works")
     .container__back-blur.offset-pos
     .first
@@ -21,7 +21,7 @@
             p.posts__title-box__text {{item.title}}
             span.posts__title-box__bar
             time.posts__title-box__text {{item.media}}
-    baseFooter(:scrollBar="bodyScrollBar")
+    baseFooter
 </template>
 
 <script>
@@ -70,37 +70,6 @@ export default {
             start: 'top center',
           },
         })
-      })
-    },
-    scrollCustom() {
-      Scrollbar.destroyAll()
-      this.bodyScrollBar = null
-      const el = this.$refs.worksContainer
-      this.bodyScrollBar = Scrollbar.init(el, {
-        damping: 0.1,
-        delegateTo: document,
-        thumbMinSize: 20,
-      })
-      this.bodyScrollBar.addListener(({ offset }) => {
-        if (el.querySelector('.offset-pos')) {
-          gsap.set('.offset-pos', {
-            x: offset.x,
-            y: offset.y,
-          })
-        }
-      })
-      this.bodyScrollBar.setPosition(0, 0)
-      ScrollTrigger.scrollerProxy(el, {
-        scrollTop(value) {
-          if (arguments.length) {
-            this.bodyScrollBar.scrollTop = value
-          }
-          return this.bodyScrollBar.scrollTop
-        },
-      })
-      this.bodyScrollBar.addListener(() => {
-        this.bodyScrollBar.setPosition(0)
-        ScrollTrigger.refresh()
       })
     },
     scrollBlur() {

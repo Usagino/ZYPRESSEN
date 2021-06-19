@@ -14,10 +14,6 @@
 </template>
 
 <script>
-// import Scrollbar, { ScrollbarPlugin } from 'smooth-scrollbar'
-// import gsap from 'gsap' // eslint-disable-line
-// import { ScrollTrigger } from 'gsap/dist/ScrollTrigger.min.js'
-
 export default {
   props: {
     name: {
@@ -29,7 +25,6 @@ export default {
     return {}
   },
   mounted() {
-    // gsap.registerPlugin(ScrollTrigger)
     this.setVideo()
   },
   created() {},

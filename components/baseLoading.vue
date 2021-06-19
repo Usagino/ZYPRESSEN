@@ -4,9 +4,7 @@
 </template>
 
 <script>
-// import Scrollbar, { ScrollbarPlugin } from 'smooth-scrollbar'
 import gsap from 'gsap' // eslint-disable-line
-// import { ScrollTrigger } from 'gsap/dist/ScrollTrigger.min.js'
 import lottie from 'lottie-web'
 import animeDataPC from '@/assets/json/pc_loading.json'
 import animeDataSP from '@/assets/json/sp_loading.json'
@@ -16,8 +14,6 @@ export default {
     return {}
   },
   mounted() {
-    // gsap.registerPlugin(ScrollTrigger)
-    console.log(window.innerWidth > 750 ? 'animeDataPC' : 'animeDataSP')
     const lottoleAnime = lottie.loadAnimation({
       container: this.$('.base-loading__film'),
       renderer: 'svg',
@@ -28,12 +24,12 @@ export default {
     window.setTimeout(function () {
       lottoleAnime.play()
     }, 1000)
-
     lottoleAnime.addEventListener('complete', () => {
       if (this.$('.back-movie__video')) {
         this.resetVideo()
         this.playVideo()
         this.$('.base-loading').classList.add('already_loaded')
+        console.log('ビデオがある')
       }
       const tl = gsap.timeline()
       tl.to('.base-loading', { duration: 0.5, opacity: 0 })

@@ -1,7 +1,7 @@
 <template lang="pug">
-  .container(ref="workContainer" @mousemove="mousemoveNext")
-    .container__back-blur.offset-pos
-    .next-thumbnail
+  .container.scroll-paper
+    // .container__back-blur.offset-pos
+    .next-thumbnail.offset-pos
       img.next-thumbnail__image(:src="work.nextthumbnailHorizontal")
     .work
       .work__info
@@ -32,16 +32,16 @@
           :src="item"
           )
     .next-work(
+      @mousemove="mousemoveNext"
       @mouseover="mouseoverNext"
       @mouseleave="mouseleaveNext"
       )
       n-link.next-work__wrap(:to="`/works/${work.nextLinkId}`")
         p.next-work__text(v-for="item of 8") Next
-    baseFooter(:scrollBar="bodyScrollBar")
+    baseFooter
 </template>
 
 <script>
-import Scrollbar, { ScrollbarPlugin } from 'smooth-scrollbar'
 import gsap from 'gsap' // eslint-disable-line
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger.min.js'
 import transitionAnime from '@/assets/js/transition.js'
@@ -65,7 +65,6 @@ export default {
 
     this.scrollCustom()
     this.enterAnime()
-    console.log(this.work)
   },
   created() {
     this.loadWorksData()
@@ -91,14 +90,14 @@ export default {
       })
     },
     mouseoverNext() {
-      console.log('mouseoverNext')
+      // console.log('mouseoverNext')
       gsap.to('.next-thumbnail__image', {
         duration: 0.3,
         clipPath: 'inset(0 0% 0 0%)',
       })
     },
     mouseleaveNext() {
-      console.log('mouseleave')
+      // console.log('mouseleave')
       const tl = gsap.timeline()
       tl.to('.next-thumbnail__image', {
         duration: 0.3,
@@ -112,52 +111,15 @@ export default {
       if (e) {
         const currentOffsetY = this.$('.next-work').offsetTop
         this.mouseOffset.clientY = e.clientY
-        gsap.to('.next-thumbnail', {
+        gsap.to('.next-thumbnail__image', {
           x: e.clientX - 100,
           y: e.clientY - 150 + this.mouseOffset.offsetY,
         })
       } else {
-        gsap.to('.next-thumbnail', {
+        gsap.to('.next-thumbnail__image', {
           y: this.mouseOffset.clientY - 150 + this.mouseOffset.offsetY,
         })
       }
-    },
-    addMousemove() {
-      // const getOffsetY
-    },
-
-    scrollCustom() {
-      Scrollbar.destroyAll()
-      this.bodyScrollBar = null
-      const el = this.$refs.workContainer
-      this.bodyScrollBar = Scrollbar.init(el, {
-        damping: 0.1,
-        delegateTo: document,
-        thumbMinSize: 20,
-      })
-      this.bodyScrollBar.addListener(({ offset }) => {
-        this.mouseOffset.offsetY = offset.y
-        this.mousemoveNext()
-        if (el.querySelector('.offset-pos')) {
-          gsap.set('.offset-pos', {
-            x: offset.x,
-            y: offset.y,
-          })
-        }
-      })
-      this.bodyScrollBar.setPosition(0, 0)
-      ScrollTrigger.scrollerProxy(el, {
-        scrollTop(value) {
-          if (arguments.length) {
-            this.bodyScrollBar.scrollTop = value
-          }
-          return this.bodyScrollBar.scrollTop
-        },
-      })
-      this.bodyScrollBar.addListener(() => {
-        this.bodyScrollBar.setPosition(0)
-        ScrollTrigger.refresh()
-      })
     },
   },
 }

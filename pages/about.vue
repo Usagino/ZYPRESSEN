@@ -1,5 +1,5 @@
 <template lang="pug">
-  .container(ref="aboutContainer")
+  .container.scroll-paper
     .transition-screen
     backMovie(name="about")
     .first
@@ -43,8 +43,7 @@
           span.mail-address__minion(v-for="t in 'info@zypressen.org'.split('')") {{t}}
         p.mail-address__text.mail-address__text--child
           span.mail-address__minion(v-for="t in spaceReplace('Please contact us')" v-html="t")
-
-    baseFooter(:scrollBar="bodyScrollBar")
+    baseFooter
 </template>
 
 <script>
@@ -58,7 +57,6 @@ export default {
   transition: transitionAnime(),
   data() {
     return {
-      bodyScrollBar: null,
       mailAnimeToggle: true,
     }
   },
@@ -104,37 +102,6 @@ export default {
   },
   created() {},
   methods: {
-    scrollCustom() {
-      Scrollbar.destroyAll()
-      this.bodyScrollBar = null
-      const el = this.$refs.aboutContainer
-      this.bodyScrollBar = Scrollbar.init(el, {
-        damping: 0.1,
-        delegateTo: document,
-        thumbMinSize: 20,
-      })
-      this.bodyScrollBar.addListener(({ offset }) => {
-        if (el.querySelector('.offset-pos')) {
-          gsap.set('.offset-pos', {
-            x: offset.x,
-            y: offset.y,
-          })
-        }
-      })
-      this.bodyScrollBar.setPosition(0, 0)
-      ScrollTrigger.scrollerProxy(el, {
-        scrollTop(value) {
-          if (arguments.length) {
-            this.bodyScrollBar.scrollTop = value
-          }
-          return this.bodyScrollBar.scrollTop
-        },
-      })
-      this.bodyScrollBar.addListener(() => {
-        this.bodyScrollBar.setPosition(0)
-        ScrollTrigger.refresh()
-      })
-    },
     mailAnime(over) {
       if (this.mailAnimeToggle) {
         this.mailAnimeToggle = false
