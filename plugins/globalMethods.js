@@ -7,6 +7,7 @@ Vue.mixin({
   data() {
     return {
       smoothScrollBar: null,
+      bodyScrollBar: null,
     }
   },
   methods: {
@@ -69,6 +70,7 @@ Vue.mixin({
         delegateTo: document,
         thumbMinSize: 20,
       })
+
       bodyScrollBar.addListener(({ offset }) => {
         if (this.$('.offset-pos')) {
           gsap.set('.offset-pos', {
@@ -77,6 +79,7 @@ Vue.mixin({
           })
         }
       })
+
       bodyScrollBar.setPosition(0, 0)
       ScrollTrigger.scrollerProxy(el, {
         scrollTop(value) {
@@ -86,10 +89,21 @@ Vue.mixin({
           return bodyScrollBar.scrollTop
         },
       })
+
       bodyScrollBar.addListener(() => {
-        bodyScrollBar.setPosition(0)
         ScrollTrigger.refresh()
       })
+
+      if (this.$('.scroll-button')) {
+        this.$('.scroll-button').addEventListener('click', () => {
+          bodyScrollBar.scrollTo(0, window.innerHeight, 1000)
+        })
+      }
+      if (this.$('.base-footer__scroll')) {
+        this.$('.base-footer__scroll').addEventListener('click', () => {
+          bodyScrollBar.scrollTo(0, 0, 1000)
+        })
+      }
     },
   },
 })

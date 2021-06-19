@@ -15,7 +15,7 @@
         li
           a(href="/").base-footer__social__link Info@zypressen.org
     small.base-footer__copy ©2021ZYPRESSEN
-    .base-footer__scroll(@click="scrollTop()")
+    .base-footer__scroll
       .base-footer__scroll__circle
         .base-footer__scroll__text-wrap
           p.base-footer__scroll__text Back Top
@@ -25,29 +25,17 @@
 <script>
 // import Scrollbar, { ScrollbarPlugin } from 'smooth-scrollbar'
 import gsap from 'gsap' // eslint-disable-line
-// import { ScrollTrigger } from 'gsap/dist/ScrollTrigger.min.js'
 
 export default {
-  props: {
-    scrollBar: {
-      default: () => {
-        return {}
-      },
-      type: Object,
-    },
-  },
+  props: {},
   data() {
     return {}
   },
   mounted() {
-    // gsap.registerPlugin(ScrollTrigger)
+    // gsap.registerPlugin(ScrollToPlugin)
   },
   created() {},
-  methods: {
-    scrollTop() {
-      this.scrollBar.scrollTo(0, 0, 1000)
-    },
-  },
+  methods: {},
 }
 </script>
 
@@ -130,7 +118,7 @@ export default {
       font-size: 12px
       letter-spacing: 0.6px
       color: #888888
-      animation: scroll-text 1s ease 1s normal infinite
+      animation: scroll-text 4s ease 0s normal infinite
       +sp-view
         font-size: 10px
     &__bottom
@@ -147,9 +135,11 @@ export default {
           transition: all .3s ease .2s
           animation: none
 
-    @keyframes scroll-text
-      0%
-        transform: translateY(0px)
-      100%
-        transform: translateY(-16px)
+@keyframes scroll-text
+  0%
+    transform: translateY(0px)
+  25%
+    transform: translateY(-16px)
+  100%
+    transform: translateY(-16px)
 </style>
