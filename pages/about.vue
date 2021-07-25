@@ -29,7 +29,7 @@
           h2.question__first__title
             span.question__move-text Different From <br>Others!!
         .question__first__sentence-box
-          p.question__first__sentence ZYPRESSEN is a creative team that creates digital product designs. We don't believe in stereotypes, and each member of our team is always working with a cutting-edge philosophy. In order to create something new and different, we observe and absorb what our predecessors have built and find new values that have never been seen before.<br>We call this "Different from Others".
+          p.question__first__sentence In order to create something new and different, our designs are always observing and absorbing what our predecessors have built and finding new values that have never been seen before.<br>We call this "Different from Others".
 
       .question__picture-first
         img.question__picture-first__image(src="/about_2.png")

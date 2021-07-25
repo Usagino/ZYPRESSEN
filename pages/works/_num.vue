@@ -2,7 +2,7 @@
   .container.scroll-paper
     // .container__back-blur.offset-pos
     .next-thumbnail.offset-pos
-      img.next-thumbnail__image(:src="work.nextthumbnailHorizontal")
+      img.next-thumbnail__image(:src="work.nextthumbnailHorizontal+'?auto=compress'")
     .work
       .work__info
         h2.work__title
@@ -15,7 +15,7 @@
           v-if="work.projectLink"
           :href="work.projectLink" target="_blank") View Project
       .work__thumbnail-wrap
-        img.work__thumbnail(:src="work.thumbnailHorizontal")
+        img.work__thumbnail(:src="work.thumbnailHorizontal+'?auto=compress'")
       .work__description
         p.work__description__text {{work.bodyEn}}
         .work__detail
