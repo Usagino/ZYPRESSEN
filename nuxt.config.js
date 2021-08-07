@@ -20,7 +20,7 @@ export default {
   },
   plugins: ['@/plugins/globalMethods.js', '@/plugins/axios'],
   components: true,
-  // css: ['~/assets/stylesheet/style.sass'],
+  css: ['~/assets/stylesheet/style.sass'],
   buildModules: ['@nuxtjs/style-resources'],
   modules: [
     '@nuxtjs/axios',

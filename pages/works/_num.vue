@@ -1,6 +1,5 @@
 <template lang="pug">
   .container.scroll-paper
-    // .container__back-blur.offset-pos
     .next-thumbnail.offset-pos
       img.next-thumbnail__image(:src="work.nextthumbnailHorizontal+'?auto=compress'")
     .work
@@ -34,8 +33,7 @@
     .next-work(
       @mousemove="mousemoveNext"
       @mouseover="mouseoverNext"
-      @mouseleave="mouseleaveNext"
-      )
+      @mouseleave="mouseleaveNext")
       n-link.next-work__wrap(:to="`/works/${work.nextLinkId}`")
         p.next-work__text(v-for="item of 8") Next
     baseFooter
