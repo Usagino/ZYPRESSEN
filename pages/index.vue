@@ -9,6 +9,7 @@
           h2.top__title__text Others!!
       scrollButton.top--works-click(text="Works" @click.native="pushWorks()")
     .screen
+    baseFooter(v-show="false")
 </template>
 
 <script>
@@ -35,8 +36,10 @@ export default {
           gsap.to('.screen', {
             duration: 0.1,
             y: event.wheelDelta,
+            onComplete: () => {
+              this.$router.push('/works')
+            },
           })
-          this.$router.push('/works')
         }
       },
       { passive: true }
