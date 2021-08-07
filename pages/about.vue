@@ -59,18 +59,15 @@ export default {
       mailAnimeToggle: true,
     }
   },
-  mounted() {
+  async mounted() {
     gsap.registerPlugin(ScrollTrigger)
     gsap.registerPlugin(CustomEase)
-
-    this.scrollCustom()
     gsap.to('.first__title-box__title, .first__title-box__text-item', {
       duration: 1,
       delay: 2,
       y: '0%',
       ease: CustomEase.create('custom', 'M0,0 C0,1.304 0.502,1 1,1 '),
     })
-
     gsap.utils.toArray('.question__first').forEach((el, i) => {
       const tl = gsap.timeline()
       tl.to(
@@ -98,6 +95,7 @@ export default {
         start: 'top center',
       })
     })
+    await this.scrollCustom()
   },
   created() {},
   methods: {

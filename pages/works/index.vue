@@ -38,11 +38,9 @@ export default {
       bodyScrollBar: null,
     }
   },
-  mounted() {
+  async mounted() {
     gsap.registerPlugin(ScrollTrigger)
     gsap.registerPlugin(CustomEase)
-
-    this.scrollCustom()
     this.enterAnime()
     this.scrollBlur()
     gsap.to('.first__title-box__title, .first__title-box__text-item', {
@@ -51,6 +49,7 @@ export default {
       y: '0%',
       ease: CustomEase.create('custom', 'M0,0 C0,1.304 0.502,1 1,1 '),
     })
+    await this.scrollCustom()
   },
   created() {},
   methods: {

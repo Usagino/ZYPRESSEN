@@ -59,12 +59,11 @@ export default {
       },
     }
   },
-  mounted() {
+  async mounted() {
     gsap.registerPlugin(ScrollTrigger)
     gsap.registerPlugin(CustomEase)
-
-    this.scrollCustom()
     this.enterAnime()
+    await this.scrollCustom()
   },
   created() {
     this.loadWorksData()

@@ -20,23 +20,21 @@ export default {
   },
   plugins: ['@/plugins/globalMethods.js', '@/plugins/axios'],
   components: true,
-
   // css: ['~/assets/stylesheet/style.sass'],
-  styleResources: {
-    sass: ['~/assets/stylesheet/style.sass'],
-  },
   buildModules: ['@nuxtjs/style-resources'],
   modules: [
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
     '@nuxtjs/dayjs',
     'nuxt-user-agent',
-    // '@nuxtjs/sitemap',
+    '@nuxtjs/sitemap',
   ],
-
   axios: { proxy: true },
   env: {
     CMSKEY: process.env.CMSKEY,
+  },
+  styleResources: {
+    sass: ['~/assets/stylesheet/style.sass'],
   },
   pwa: {
     meta: {
@@ -47,7 +45,7 @@ export default {
       ogTitle: meta.title,
       ogDescription: meta.description,
       ogImage: meta.image,
-      twitterCard: 'summary',
+      twitterCard: 'summary_large_image',
     },
     manifest: {
       name: meta.title,
@@ -58,8 +56,8 @@ export default {
       background_color: '#f2f2f2',
     },
     workbox: {
-      skipWaiting: true,
-      clientsClaim: true,
+      skipWaiting: false,
+      clientsClaim: false,
     },
   },
   sitemap: {
