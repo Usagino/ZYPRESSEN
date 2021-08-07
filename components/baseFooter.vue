@@ -9,11 +9,11 @@
           n-link(to="/").base-footer__menu__link {{item}}
       ul.base-footer__social
         li
-          a(href="/").base-footer__social__link Twitter
+          a(href="/https://twitter.com/zypjp" target="_blank").base-footer__social__link Twitter
         li
-          a(href="/").base-footer__social__link Instagram
+          a(href="/https://www.instagram.com/zypjp/" target="_blank").base-footer__social__link Instagram
         li
-          a(href="/").base-footer__social__link Info@zypressen.org
+          a(href="mailto:info@zypressen.org" target="_blank").base-footer__social__link Info@zypressen.org
     small.base-footer__copy ©2021ZYPRESSEN
     .base-footer__scroll
       .base-footer__scroll__circle

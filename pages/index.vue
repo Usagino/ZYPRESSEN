@@ -21,19 +21,23 @@ import transitionAnime from '@/assets/js/transition.js'
 export default {
   transition: transitionAnime(),
   data() {
-    return {}
+    return {
+      scrollToggle: true,
+    }
   },
   mounted() {
     gsap.registerPlugin(ScrollTrigger, Draggable)
-    // document.addEventListener('touchstart', handler, {passive: true});
     this.$('.top-container').addEventListener(
       'wheel',
       (event) => {
-        gsap.to('.screen', {
-          duration: 0.1,
-          y: event.wheelDelta,
-        })
-        this.$router.push('/works')
+        if (this.scrollToggle) {
+          this.scrollToggle = false
+          gsap.to('.screen', {
+            duration: 0.1,
+            y: event.wheelDelta,
+          })
+          this.$router.push('/works')
+        }
       },
       { passive: true }
     )

@@ -16,8 +16,7 @@
           h2.question__first__title
             span.question__move-text Who We Are?
         .question__first__sentence-box
-          p.question__first__sentence ZYPRESSEN is a creative team that creates digital product designs. We don't believe in stereotypes, and each member of our team is always working with a cutting-edge philosophy. In order to create something new and different, we observe and absorb what our predecessors have built and find new values that have never been seen before.<br>We call this "Different from Others".
-
+          p.question__first__sentence "ZYPRESSEN is a small, elite creative team based in Tokyo that produces digital product design for the web, advertising, and video. We are not bound by stereotypes, and each member of the team is always working with a cutting-edge philosophy. Please feel free to contact us at any time.<br>From your dear neighbor, ZYPRESSEN.
       .question__picture-first
         img.question__picture-first__image(src="/about_1.png")
         // aboutHoverText
