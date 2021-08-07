@@ -16,7 +16,7 @@
           :key="i"
           )
           .posts__thumbnail-box
-            img(:src="item.thumbnailVertical").posts__thumbnail
+            img(:src="item.thumbnailVertical" onselectstart="return false;" onmousedown="return false;").posts__thumbnail
           .posts__title-box
             p.posts__title-box__text {{item.title}}
             span.posts__title-box__bar

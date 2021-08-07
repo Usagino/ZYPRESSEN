@@ -2,7 +2,7 @@
   .base-header
     .base-header__right
       n-link(to="/").base-header__logo-wrap
-        img.base-header__logo(src="/logo.svg")
+        img.base-header__logo(src="/logo.png" onselectstart="return false;" onmousedown="return false;")
       //.base-header__lang
         button.base-header__lang--en En
         button.base-header__lang--ja Ja
@@ -54,10 +54,12 @@ export default {
       display: none
   .base-header__logo-wrap
     line-height: 0px
+
     +sp-view
       overflow: auto
   .base-header__logo
     margin-right: 88px
+    width: 120px
     +sp-view
       margin-right: 0px
       width: 82px

@@ -3,8 +3,7 @@
   .base-footer__wrap
     .base-footer__info
       .base-footer__logo-wrap
-        Logo.base-footer__logo
-        // img.base-footer__logo(src="/logo.svg")
+        img.base-footer__logo(src="/logo.png")
       ul.base-footer__menu
         li(v-for="item in ['Works','About']" :key="item")
           n-link(:to="`/${item.toLowerCase()}`").base-footer__menu__link {{item}}
