@@ -3,7 +3,7 @@ import dayjs from 'dayjs'
 export const state = () => ({
   works: [],
   latestWorks: [],
-  lang: 'en',
+  lang: 'jp',
 })
 
 export const actions = {
