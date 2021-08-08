@@ -16,7 +16,8 @@
       .work__thumbnail-wrap
         img.work__thumbnail(:src="work.thumbnailHorizontal+'?auto=compress'")
       .work__description
-        p.work__description__text {{work.bodyEn}}
+        p.work__description__text(v-show="$store.state.lang==='en'") {{work.bodyEn}}
+        p.work__description__text(v-show="$store.state.lang==='jp'") {{work.bodyJa}}
         .work__detail
           .work__detail__box
             p.work__detail__title Media

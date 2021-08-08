@@ -9,19 +9,25 @@
           span.first__title-box__text-item 02
         h2.first__title-box__title About
     .question
-      .question__first
+      .question__first(v-show="$store.state.lang==='en'")
         .question__first__title-box
           p.question__first__degree
             span.question__move-text 01.About
           h2.question__first__title
             span.question__move-text Who We Are?
         .question__first__sentence-box
-          p.question__first__sentence "ZYPRESSEN is a small, elite creative team based in Tokyo that produces digital product design for the web, advertising, and video. We are not bound by stereotypes, and each member of the team is always working with a cutting-edge philosophy. Please feel free to contact us at any time.<br>From your dear neighbor, ZYPRESSEN.
+          p.question__first__sentence "ZYPRESSEN is a small, elite creative team based in Tokyo that produces digital product design for the web, advertising, and video. We are not bound by stereotypes, and each member of the team is always working with a cutting-edge philosophy. Please feel free to contact us at any time.<br>From your dear neighbor, ZYPRESSEN
+      .question__first(v-show="$store.state.lang==='jp'")
+        .question__first__title-box
+          p.question__first__degree
+            span.question__move-text 01.About
+          h2.question__first__title
+            span.question__move-text Who We Are?
+        .question__first__sentence-box
+          p.question__first__sentence 「ZYPRESSEN」は、東京を拠点として活動し、web・広告デザイン・映像などのデジタルプロダクトデザインを制作する少数精鋭のクリエイティブチームです。固定概念に囚われずチームの一人一人が常に最先端のフィロソフィーを持って活動しています。いつでもお気軽にお問い合わせください。<br>あなたの親愛なる隣人ZYPRESSENより。
       .question__picture-first
         img.question__picture-first__image(src="/about_1.png")
-        // aboutHoverText
-
-      .question__first.question__first--right
+      .question__first.question__first--right(v-show="$store.state.lang==='en'")
         .question__first__title-box
           p.question__first__degree
             span.question__move-text 02. Philosophy
@@ -29,10 +35,17 @@
             span.question__move-text Different From <br>Others!!
         .question__first__sentence-box
           p.question__first__sentence In order to create something new and different, our designs are always observing and absorbing what our predecessors have built and finding new values that have never been seen before.<br>We call this "Different from Others".
+      .question__first.question__first--right(v-show="$store.state.lang==='jp'")
+        .question__first__title-box
+          p.question__first__degree
+            span.question__move-text 02. Philosophy
+          h2.question__first__title
+            span.question__move-text Different From <br>Others!!
+        .question__first__sentence-box
+          p.question__first__sentence 私たちのデザインは常に他とは違う新しいものを制作するために、今まで先人たちが築き上げてきたものを観察し吸収して今までにない新たな価値を見出しています。<br>そして私たちはこれを「Different from Others」と呼んでいます。
 
       .question__picture-first
         img.question__picture-first__image(src="/about_2.png")
-        // aboutHoverText
       a.mail-address(
         @mouseover="mailAnime(true)"
         @mouseleave="mailAnime(false)"
@@ -62,6 +75,7 @@ export default {
   async mounted() {
     gsap.registerPlugin(ScrollTrigger)
     gsap.registerPlugin(CustomEase)
+    this.resetStyle()
     gsap.to('.first__title-box__title, .first__title-box__text-item', {
       duration: 1,
       delay: 2,
@@ -70,6 +84,9 @@ export default {
     })
     gsap.utils.toArray('.question__first').forEach((el, i) => {
       const tl = gsap.timeline()
+      // tl.call(() => {
+      //   this.resetStyle()
+      // })
       tl.to(
         this.$$('.question__move-text', el),
         {
@@ -97,7 +114,11 @@ export default {
     })
     await this.scrollCustom()
   },
-  created() {},
+  created() {
+    if (process.client) {
+      this.resetStyle()
+    }
+  },
   methods: {
     mailAnime(over) {
       if (this.mailAnimeToggle) {
@@ -140,6 +161,15 @@ export default {
         }
       }
     },
+    resetStyle() {
+      gsap.set('.question__first__sentence', {
+        y: 100,
+        opacity: 0,
+      })
+      gsap.set('.question__move-text', {
+        y: '100%',
+      })
+    },
   },
 }
 </script>
@@ -178,7 +208,7 @@ export default {
       font-size: 40px
       letter-spacing: 1.4px
   .question__move-text
-    transform: translateY(100%)
+    // transform: translateY(100%)
 
   .question__first__sentence-box
     margin-top: 120px
@@ -190,8 +220,8 @@ export default {
     font-size: 15px
     line-height: 180%
     letter-spacing: 1px
-    transform: translateY(100px)
-    opacity: 0
+    // transform: translateY(100px)
+    // opacity: 0
     +sp-view
       font-size: 12px
       list-style: 0.6px

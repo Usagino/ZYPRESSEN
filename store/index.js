@@ -3,6 +3,7 @@ import dayjs from 'dayjs'
 export const state = () => ({
   works: [],
   latestWorks: [],
+  lang: 'en',
 })
 
 export const actions = {
@@ -68,5 +69,8 @@ export const mutations = {
       return obj
     })
     state.latestWorks = latestWorksArray
+  },
+  changeLang(state, lang) {
+    state.lang = lang
   },
 }

@@ -6,7 +6,7 @@
       span.button__bar-bottom.button__bar
     .display
       img.display__logo(src="/logo_gray.svg")
-      .display__menu.display__social.display__lang
+      .display__menu.display__social
         ul.display__menu__list
           li.display__menu__item-wrap
             n-link.display__menu__item(to="/" @click.native="close()") Top
@@ -21,6 +21,9 @@
             a(href="/" target="_blank").display__social__item Instagram
           li.display__social__item-wrap
             a(href="/" target="_blank").display__social__item Info@zypressen.org
+        .display__lang
+          button.display__lang__text(@click="$store.commit('changeLang', 'en')" :class="{'display__lang__text--active':$store.state.lang==='en'}") EN
+          button.display__lang__text(@click="$store.commit('changeLang', 'jp')" :class="{'display__lang__text--active':$store.state.lang==='jp'}") JP
 </template>
 
 <script>
@@ -200,16 +203,13 @@ export default {
       font-size: 12px
       font-weight: 300
   .display__lang
-    .display__lang__wrap
-      position: absolute
-      bottom: 32px
-      right: 20px
-      +gap-right(16px)
-      .display__lang__wrap__text
-        font-size: 12px
-        font-weight: 300
-    .display__lang--en
-      text-decoration: underline
-    .display__lang--ja
-      opacity: 0.6
+    display: block
+    position: absolute
+    bottom: 20px
+    +gap-right(12px)
+    .display__lang__text
+      opacity: 0.5
+      transition: opacity 0.3s ease
+      &--active
+        opacity: 1
 </style>
