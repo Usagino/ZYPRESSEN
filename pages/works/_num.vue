@@ -148,7 +148,7 @@ export default {
   .work__info
     width: 100%
     +sp-view
-      width: 50vw
+      width: 100%
     .work__text
       padding-top: 32px
   .work__info__created
@@ -168,6 +168,7 @@ export default {
   .work__title__wrap
     overflow: hidden
     +sp-view
+      padding-top: 6px
       *
         font-size: 40px
   .work__text
