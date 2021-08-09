@@ -22,8 +22,8 @@
           li.display__social__item-wrap
             a(href="/" target="_blank").display__social__item Info@zypressen.org
         .display__lang
-          button.display__lang__text(@click="$store.commit('changeLang', 'en')" :class="{'display__lang__text--active':$store.state.lang==='en'}") EN
-          button.display__lang__text(@click="$store.commit('changeLang', 'jp')" :class="{'display__lang__text--active':$store.state.lang==='jp'}") JP
+          button.display__lang__text(@click="changeLang('en')" :class="{'display__lang__text--active':$store.state.lang==='en'}") EN
+          button.display__lang__text(@click="changeLang('jp')" :class="{'display__lang__text--active':$store.state.lang==='jp'}") JP
 </template>
 
 <script>
@@ -38,6 +38,10 @@ export default {
   mounted() {},
   created() {},
   methods: {
+    changeLang(lang) {
+      this.$store.commit('changeLang', lang)
+      this.close()
+    },
     open() {
       const tl = gsap.timeline({
         onComplete: () => {
