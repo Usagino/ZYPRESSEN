@@ -36,6 +36,10 @@ export default {
   styleResources: {
     sass: ['~/assets/stylesheet/style.sass'],
   },
+  'google-gtag': {
+    id: 'G-SDCDK9VMLF',
+    debug: false,
+  },
   pwa: {
     meta: {
       name: meta.title,
