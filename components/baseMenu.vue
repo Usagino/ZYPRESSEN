@@ -16,11 +16,11 @@
             n-link.display__menu__item(to="/about" @click.native="close()") About
         ul.display__social__list
           li.display__social__item-wrap
-            a(href="/" target="_blank").display__social__item Twitter
+            a(href="https://twitter.com/zypjp/" target="_blank").display__social__item Twitter
           li.display__social__item-wrap
-            a(href="/" target="_blank").display__social__item Instagram
+            a(href="https://www.instagram.com/zypjp/" target="_blank").display__social__item Instagram
           li.display__social__item-wrap
-            a(href="/" target="_blank").display__social__item Info@zypressen.org
+            a(href="mailto:info@zypressen.org" target="_blank").display__social__item info@zypressen.org
         .display__lang
           button.display__lang__text(@click="changeLang('en')" :class="{'display__lang__text--active':$store.state.lang==='en'}") EN
           button.display__lang__text(@click="changeLang('jp')" :class="{'display__lang__text--active':$store.state.lang==='jp'}") JP

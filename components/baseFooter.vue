@@ -13,7 +13,7 @@
         li
           a(href="https://www.instagram.com/zypjp/" target="_blank" rel="noopener noreferrer").base-footer__social__link Instagram
         li
-          a(href="mailto:info@zypressen.org" target="_blank" rel="noopener noreferrer").base-footer__social__link Info@zypressen.org
+          a(href="mailto:info@zypressen.org" target="_blank" rel="noopener noreferrer").base-footer__social__link info@zypressen.org
     small.base-footer__copy ©2021ZYPRESSEN
     .base-footer__scroll
       .base-footer__scroll__circle
