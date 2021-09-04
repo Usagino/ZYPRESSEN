@@ -28,20 +28,12 @@ export default {
   },
   mounted() {
     gsap.registerPlugin(ScrollTrigger, Draggable)
+    this.$('.top-container').addEventListener('touchmove', (event) =>
+      this.scrollPush()
+    )
     this.$('.top-container').addEventListener(
       'wheel',
-      (event) => {
-        if (this.scrollToggle) {
-          this.scrollToggle = false
-          gsap.to('.screen', {
-            duration: 0.1,
-            y: event.wheelDelta,
-            onComplete: () => {
-              this.$router.push('/works')
-            },
-          })
-        }
-      },
+      (event) => this.scrollPush(),
       { passive: true }
     )
   },
@@ -49,6 +41,18 @@ export default {
   methods: {
     pushWorks() {
       this.$router.push('/works')
+    },
+    scrollPush() {
+      if (this.scrollToggle) {
+        this.scrollToggle = false
+        gsap.to('.screen', {
+          duration: 0.1,
+          y: event.wheelDelta,
+          onComplete: () => {
+            this.pushWorks()
+          },
+        })
+      }
     },
   },
 }

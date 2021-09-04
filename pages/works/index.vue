@@ -41,7 +41,7 @@ export default {
   async mounted() {
     gsap.registerPlugin(ScrollTrigger)
     gsap.registerPlugin(CustomEase)
-    this.enterAnime()
+    // this.enterAnime()
     this.scrollBlur()
     gsap.to('.first__title-box__title, .first__title-box__text-item', {
       duration: 1,

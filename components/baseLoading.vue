@@ -29,7 +29,6 @@ export default {
         this.resetVideo()
         this.playVideo()
         this.$('.base-loading').classList.add('already_loaded')
-        console.log('ビデオがある')
       }
       const tl = gsap.timeline()
       tl.to('.base-loading', { duration: 0.5, opacity: 0 })
