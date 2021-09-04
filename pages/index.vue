@@ -28,8 +28,10 @@ export default {
   },
   mounted() {
     gsap.registerPlugin(ScrollTrigger, Draggable)
-    this.$('.top-container').addEventListener('touchmove', (event) =>
-      this.scrollPush()
+    this.$('.top-container').addEventListener(
+      'touchmove',
+      (event) => this.scrollPush(),
+      { passive: true }
     )
     this.$('.top-container').addEventListener(
       'wheel',
