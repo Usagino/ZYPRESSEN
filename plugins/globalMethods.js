@@ -12,8 +12,10 @@ Vue.mixin({
   },
   watch: {
     $route() {
-      console.clear()
-      this.ZypressenProof()
+      if (location.hostname !== 'localhost') {
+        console.clear()
+        this.ZypressenProof()
+      }
     },
   },
   methods: {

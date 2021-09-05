@@ -25,6 +25,10 @@
           .work__detail__box
             p.work__detail__title Client
             p.work__detail__text {{work.client}}
+        .work__detail
+          .work__detail__box
+            p.work__detail__title Staffroll
+            p.work__detail__text(v-html="work.staffRoll.join('<br>')")
       .work__gallery
         img.work__gallery__image(
           v-for="(item, index) in work.gallery"
@@ -217,13 +221,17 @@ export default {
     +gap-right(56px)
     margin-top: 32px
   // .work__detail__title
+  .work__detail__box
+    &--inline
+      width: 100%
   .work__detail__title
     padding-top: 8px
+    opacity: 0.5
     +sp-view
       font-size: 12px
   .work__detail__text
-    opacity: 0.5
     padding-top: 8px
+    line-height: 1.5
     +sp-view
       font-size: 12px
   .work__gallery

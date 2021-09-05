@@ -74,8 +74,7 @@ export default {
       +sp-view
         font-size: 12px
         font-weight: 300
-  .base-footer__social
-    &__link
+  .base-footer__social__link
       text-decoration: underline
   .base-footer__copy
     display: block
@@ -86,7 +85,7 @@ export default {
       font-size: 12px
       font-weight: 300
       margin-top: 32px
-  &__scroll
+  .base-footer__scroll
     position: absolute
     bottom: 0px
     right: 0px
@@ -99,41 +98,40 @@ export default {
       width: 64px
       bottom: auto
       top: calc(-64px - 32px)
-    &__circle
-      height: 160px
-      width: 160px
-
-      background: var(--color-white)
-      border-radius: 100%
-      +flex-middle
-      transition: all .4s ease
-      +sp-view
-        height: 64px
-        width: 64px
-    &__text-wrap
-      position: relative
-      overflow: hidden
-      transition: all .4s ease
-    &__text
-      font-size: 12px
-      letter-spacing: 0.6px
-      color: #888888
-      animation: scroll-text 4s ease 0s normal infinite
-      +sp-view
-        font-size: 10px
-    &__bottom
-      position: absolute
-      top: 16px
-    +sp-view-over
-      &:hover
-        & .base-footer__scroll__circle
-          transform: scale(0.9)
-        & .base-footer__scroll__text-wrap
-          transform: scale(1.2)
-        & .base-footer__scroll__text
-          transform: translateY(-16px)
-          transition: all .3s ease .2s
-          animation: none
+  .base-footer__scroll__circle
+    height: 160px
+    width: 160px
+    background: var(--color-white)
+    border-radius: 100%
+    +flex-middle
+    transition: all .4s ease
+    +sp-view
+      height: 64px
+      width: 64px
+  .base-footer__scroll__text-wrap
+    position: relative
+    overflow: hidden
+    transition: all .4s ease
+  .base-footer__scroll__text
+    font-size: 12px
+    letter-spacing: 0.6px
+    color: #888888
+    animation: scroll-text 4s ease 0s normal infinite
+    +sp-view
+      font-size: 10px
+  .base-footer__scroll__bottom
+    position: absolute
+    top: 16px
+  +sp-view-over
+    &:hover
+      & .base-footer__scroll__circle
+        transform: scale(0.9)
+      & .base-footer__scroll__text-wrap
+        transform: scale(1.2)
+      & .base-footer__scroll__text
+        transform: translateY(-16px)
+        transition: all .3s ease .2s
+        animation: none
 
 @keyframes scroll-text
   0%

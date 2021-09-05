@@ -33,6 +33,11 @@ export const actions = {
           imageArray.push(item.IMAGE.url)
         })
       }
+
+      const staffRoll = item.staff_roll.map((item) => {
+        return `${item.position[0]} : ${item.name[0]}`
+      })
+
       const worksObj = {
         num: zeroPadding(i),
         nextLinkId: setId(originalWorksArray[nextNum].title),
@@ -44,11 +49,12 @@ export const actions = {
         thumbnailHorizontal: item.thumbnail_horizontal.url,
         nextthumbnailHorizontal:
           originalWorksArray[nextNum].thumbnail_horizontal.url,
-        media: item.media.name,
+        media: item.type[0],
         client: item.client,
         bodyEn: item.body_en,
         bodyJa: item.body_ja,
         gallery: imageArray,
+        staffRoll,
       }
       newWorksArray.push(worksObj)
     })
