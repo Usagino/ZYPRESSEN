@@ -37,7 +37,7 @@ export default {
     sass: ['~/assets/stylesheet/style.sass'],
   },
   'google-gtag': {
-    id: 'G-YX4F4JQKW6',
+    id: 'G-SDCDK9VMLF',
     debug: false,
   },
   pwa: {
