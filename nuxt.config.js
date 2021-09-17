@@ -28,6 +28,7 @@ export default {
     '@nuxtjs/dayjs',
     'nuxt-user-agent',
     '@nuxtjs/sitemap',
+    '@nuxtjs/google-gtag',
   ],
   axios: { proxy: true },
   env: {
@@ -37,7 +38,7 @@ export default {
     sass: ['~/assets/stylesheet/style.sass'],
   },
   'google-gtag': {
-    id: 'G-SDCDK9VMLF',
+    id: 'G-EHHHNQGGPF',
     debug: false,
   },
   pwa: {
